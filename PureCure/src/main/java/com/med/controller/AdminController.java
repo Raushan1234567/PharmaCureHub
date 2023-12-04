@@ -18,7 +18,7 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
-	@PostMapping
+	@PostMapping("/addAdmins")
 	public ResponseEntity<Admin> addNewAdmin(@RequestBody Admin admin) throws AdminAlreadyExistsException{
 		
 	 	Admin ad = adminService.addNewAdmin(admin);
