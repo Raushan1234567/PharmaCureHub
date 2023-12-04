@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.med.exception.AdminAlreadyExistsException;
+import com.med.exception.AdminException;
 import com.med.model.Admin;
 import com.med.repository.AdminRepository;
 import com.med.serviceinetrface.AdminService;
@@ -35,11 +36,7 @@ public class AdminServiceImpl implements AdminService{
 		return null;
 	}
 
-	@Override
-	public Admin updateAdmin(Admin admin) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public Admin findAdminById(int adminId) {
@@ -52,5 +49,22 @@ public class AdminServiceImpl implements AdminService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+//	@Override
+//	public Admin updateAdmin(Integer adminId, String adminName, String adminAdress, String adminPassword,
+//			String adminMobileNumber2) {
+//	Optional<Admin> admin=adminRepo.findById(adminId);
+//	if(admin.isPresent()) {
+//	    admin.get().setAdminName(adminName);
+//	    admin.get().setAdminAddress(adminAdress);;
+//	    admin.get().setAdminMobileNumber(adminMobileNumber2);
+//	    admin.get().setAdminPassword(adminPassword);
+//	    return adminRepo.save(admin.get());
+//	}
+//	else {
+//		throw new AdminException("Admin not exist");
+//	}
+//	
+//	}
 
 }
