@@ -3,6 +3,8 @@ package com.med.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,9 +35,11 @@ public class Customer {
 	
 	private String customerAddress;
 	
+	@JsonIgnore
 	@OneToMany
 	private List<Orders> orderList1=new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany
 	private List<Medicine> medicineList1=new ArrayList<>();
 	
