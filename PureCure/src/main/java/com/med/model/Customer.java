@@ -21,7 +21,9 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customerId;
 	
-	private String customerName;
+	private String customerfirstName;
+	
+	private String customerlastName;
 	
 	private String customerEmail;
 	
@@ -36,4 +38,5 @@ public class Customer {
 	
 	@OneToMany
 	private List<Medicine> medicineList1=new ArrayList<>();
+	
 }
