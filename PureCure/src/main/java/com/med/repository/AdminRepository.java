@@ -9,7 +9,7 @@ import com.med.model.Admin;
 
 public interface AdminRepository extends JpaRepository<Admin, Integer> {
 
-	public Optional<Admin> findByEmail(String string);
+	public Optional<Admin> findByAdminEmail(String adminEmail);
 	
 	
 
