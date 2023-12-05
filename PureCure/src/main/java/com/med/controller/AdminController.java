@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+
+
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.med.exception.AdminAlreadyExistsException;
 import com.med.model.Admin;
+import com.med.model.Customer;
 import com.med.serviceinetrface.AdminService;
 
 @RestController
@@ -32,6 +36,7 @@ public class AdminController {
 	 	return new ResponseEntity<Admin>(ad, HttpStatus.CREATED);
 	}
 	
+
 	@PatchMapping("/updateAdmins")
 	public ResponseEntity<Admin> updateAdminDetails(@RequestBody Admin admin){
 		Admin admin1 = adminService.updateAdmin(admin);
@@ -45,7 +50,10 @@ public class AdminController {
 	}
 	
 
+
 	@GetMapping("/getAdminsById/{adminId}")
+
+
 	public ResponseEntity<Admin> getAdminById(@PathVariable Integer adminId){
 		Admin newAdmin = adminService.findAdminById(adminId);
 		return new ResponseEntity<Admin>(newAdmin, HttpStatus.OK);
