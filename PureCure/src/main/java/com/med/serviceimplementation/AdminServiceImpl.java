@@ -45,6 +45,7 @@ public class AdminServiceImpl implements AdminService{
 		return admin;
 	}
 
+
 	@Override
 	public Admin updateAdmin(Admin admin) {
 		// TODO Auto-generated method stub
@@ -62,6 +63,9 @@ public class AdminServiceImpl implements AdminService{
 		}
 		return existAdmin;
 	}
+
+	
+
 
 	@Override
 	public Admin findAdminById(int adminId) {
@@ -85,5 +89,22 @@ public class AdminServiceImpl implements AdminService{
 		}
 		return adminList;
 	}
+
+//	@Override
+//	public Admin updateAdmin(Integer adminId, String adminName, String adminAdress, String adminPassword,
+//			String adminMobileNumber2) {
+//	Optional<Admin> admin=adminRepo.findById(adminId);
+//	if(admin.isPresent()) {
+//	    admin.get().setAdminName(adminName);
+//	    admin.get().setAdminAddress(adminAdress);;
+//	    admin.get().setAdminMobileNumber(adminMobileNumber2);
+//	    admin.get().setAdminPassword(adminPassword);
+//	    return adminRepo.save(admin.get());
+//	}
+//	else {
+//		throw new AdminException("Admin not exist");
+//	}
+//	
+//	}
 
 }
