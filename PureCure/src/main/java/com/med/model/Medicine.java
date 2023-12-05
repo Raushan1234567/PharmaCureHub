@@ -25,6 +25,8 @@ public class Medicine {
 	
 	private String medicineExpiryDate;
 	
-	private String medicineCompanyName;
+	private String companyName;
+	
+	private String category;
 	
 }
