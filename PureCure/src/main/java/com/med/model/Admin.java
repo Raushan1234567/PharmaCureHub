@@ -33,18 +33,25 @@ public class Admin {
 	
 	private String adminAddress;
 	
+
+	@JsonIgnore
+	@OneToMany
+	private List<Customer> customerList=new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany
 	private List<Customer> customerList=new ArrayList<>();
 	
 
+
 	@OneToMany
 	private List<Medicine> medicineList=new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany
 	private List<Orders> orderList=new ArrayList<>();
 	
-	
+	@JsonIgnore
 	@OneToMany
 	private List<Prescription> prescriptionList=new ArrayList<>();
 	

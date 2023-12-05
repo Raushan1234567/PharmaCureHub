@@ -33,21 +33,61 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public Admin deleteAdminById(int adminId) {
 		// TODO Auto-generated method stub
-		return null;
+		Admin admin = null;
+		Optional<Admin> op = adminRepo.findById(adminId);
+		if(op.isPresent()) {
+			admin = op.get();
+			adminRepo.delete(admin);
+		}else {
+			throw new AdminException("Admin is not exist with this adminId "+adminId);
+		}
+		adminRepo.deleteById(adminId);
+		return admin;
+	}
+
+
+	@Override
+	public Admin updateAdmin(Admin admin) {
+		// TODO Auto-generated method stub
+		Admin existAdmin = null;
+		Optional<Admin> op = adminRepo.findById(admin.getAdminId());
+		if(op.isPresent()) {
+			existAdmin = op.get();
+			existAdmin.setAdminName(admin.getAdminName());
+			existAdmin.setAdminAddress(admin.getAdminAddress());
+			existAdmin.setAdminPassword(admin.getAdminPassword());
+			existAdmin.setAdminMobileNumber(admin.getAdminMobileNumber());
+			adminRepo.save(existAdmin);
+		}else {
+			throw new AdminException("Admin is not Exist withthe provided adminId "+admin.getAdminId());
+		}
+		return existAdmin;
 	}
 
 	
 
+
 	@Override
 	public Admin findAdminById(int adminId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Admin admin = null;
+		Optional<Admin> op = adminRepo.findById(adminId);
+		if(op.isPresent()) {
+			admin = op.get();
+		}else {
+			throw new AdminException("Admin is not Exist withthe provided adminId "+adminId);
+		}
+		return admin;
 	}
 
 	@Override
 	public List<Admin> findAllAdmin() {
 		// TODO Auto-generated method stub
-		return null;
+		List<Admin> adminList = adminRepo.findAll();
+		if(adminList.isEmpty()) {
+			throw new AdminException("No Admin Exist at this moment");
+		}
+		return adminList;
 	}
 
 //	@Override
