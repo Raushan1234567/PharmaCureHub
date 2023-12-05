@@ -38,12 +38,8 @@ public class Admin {
 	@OneToMany
 	private List<Customer> customerList=new ArrayList<>();
 	
+
 	@JsonIgnore
-	@OneToMany
-	private List<Customer> customerList=new ArrayList<>();
-	
-
-
 	@OneToMany
 	private List<Medicine> medicineList=new ArrayList<>();
 	
