@@ -45,13 +45,13 @@ public class AdminController {
 	}
 	
 
-	@GetMapping("getAdmins/{adminId}")
+	@GetMapping("/getAdminsById/{adminId}")
 	public ResponseEntity<Admin> getAdminById(@PathVariable Integer adminId){
 		Admin newAdmin = adminService.findAdminById(adminId);
 		return new ResponseEntity<Admin>(newAdmin, HttpStatus.OK);
 	}
 	
-	@GetMapping("getAllAdmins")
+	@GetMapping("/getAllAdmins")
 	public ResponseEntity<List<Admin>> getAdminById(){
 		 List<Admin> adminList = adminService.findAllAdmin();
 		return new ResponseEntity<>(adminList, HttpStatus.OK);
