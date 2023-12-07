@@ -26,6 +26,10 @@ public class Medicine {
 	
 	private String medicineName;
 	
+	private double price;
+	
+	private int numberOfTablets;
+	
 	private String medicineDescription;
 	
 	private String medicineManufacturingDate;
