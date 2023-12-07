@@ -20,7 +20,7 @@ public class CustomerImplementation implements CustomerInterface{
 	
 	@Override
 	public Customer createCustomer(Customer customer) {
-		// TODO Auto-generated method stub
+		
 		Optional<Customer> cust=customerrepository.findBycustomerEmail(customer.getCustomerEmail());
 		if(cust.isPresent()) {
 			
@@ -43,14 +43,14 @@ public class CustomerImplementation implements CustomerInterface{
         
             return customerrepository.save(existingCustomer);
         } else {
-            // Handle customer not found
+           
             throw new CustomerException("Customer not found for this id");
         }
     }
 
 	
 	public Customer FindById(Integer customerId) {
-		// TODO Auto-generated method stub
+		
 		Optional<Customer> customerFinfById=customerrepository.findById(customerId);
 		if(customerFinfById.isPresent()) {
 			return customerFinfById.get();

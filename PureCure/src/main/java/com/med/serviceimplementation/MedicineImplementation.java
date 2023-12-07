@@ -30,7 +30,7 @@ public class MedicineImplementation implements MedicineInterface{
 
 	@Override
 	public Medicine updateMedicine(Integer medicineId, Medicine medicine) {
-		// TODO Auto-generated method stub
+		
 		Optional<Medicine> medicineOptional=medicineRepository.findById(medicineId);
 		if(medicineOptional.isEmpty()) {
 			throw new MedicineException("Medicine not found for this id");
@@ -44,13 +44,13 @@ public class MedicineImplementation implements MedicineInterface{
 
 	@Override
 	public List<Medicine> findAll() {
-		// TODO Auto-generated method stub
+		
 		return medicineRepository.findAll();
 	}
 
 	@Override
 	public Medicine findById(Integer medicineId) {
-		// TODO Auto-generated method stub
+		
 	Optional<Medicine> medicine=	medicineRepository.findById(medicineId);
 	if(medicine.isEmpty()) {
 		throw new MedicineException("Medicine not found for this MedicineId");

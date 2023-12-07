@@ -9,7 +9,7 @@ import com.med.model.Medicine;
 public interface MedicineRepository extends JpaRepository<Medicine, Integer>{
 
 
-	 public Medicine findByMedicineName(String medicineName);
+	   public Medicine findByMedicineName(String medicineName);
 
 	    public List<Medicine> findByCategory(String category);
 
