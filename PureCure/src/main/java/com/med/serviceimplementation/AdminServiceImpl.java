@@ -20,7 +20,7 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public Admin addNewAdmin(Admin admin) throws AdminAlreadyExistsException {
-		// TODO Auto-generated method stub
+	
 		Optional<Admin> op =  adminRepo.findByAdminEmail(admin.getAdminEmail());
 		if (!op.isPresent()) {
 	        adminRepo.save(admin);
@@ -32,7 +32,7 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public Admin deleteAdminById(int adminId) {
-		// TODO Auto-generated method stub
+		
 		Admin admin = null;
 		Optional<Admin> op = adminRepo.findById(adminId);
 		if(op.isPresent()) {
@@ -48,7 +48,7 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public Admin updateAdmin(Admin admin) {
-		// TODO Auto-generated method stub
+		
 		Admin existAdmin = null;
 		Optional<Admin> op = adminRepo.findById(admin.getAdminId());
 		if(op.isPresent()) {
@@ -82,7 +82,7 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public List<Admin> findAllAdmin() {
-		// TODO Auto-generated method stub
+		
 		List<Admin> adminList = adminRepo.findAll();
 		if(adminList.isEmpty()) {
 			throw new AdminException("No Admin Exist at this moment");
@@ -90,21 +90,5 @@ public class AdminServiceImpl implements AdminService{
 		return adminList;
 	}
 
-//	@Override
-//	public Admin updateAdmin(Integer adminId, String adminName, String adminAdress, String adminPassword,
-//			String adminMobileNumber2) {
-//	Optional<Admin> admin=adminRepo.findById(adminId);
-//	if(admin.isPresent()) {
-//	    admin.get().setAdminName(adminName);
-//	    admin.get().setAdminAddress(adminAdress);;
-//	    admin.get().setAdminMobileNumber(adminMobileNumber2);
-//	    admin.get().setAdminPassword(adminPassword);
-//	    return adminRepo.save(admin.get());
-//	}
-//	else {
-//		throw new AdminException("Admin not exist");
-//	}
-//	
-//	}
 
 }
