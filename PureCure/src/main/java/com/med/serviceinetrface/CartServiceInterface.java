@@ -12,6 +12,8 @@ public interface CartServiceInterface {
 
 	public List<Medicine> getMedicine(Integer cartId);
 
+	public void removeFromCart(int cartId, int medicineId);
+	
 	public void addMedicineToCart(Integer cartId, Integer medicineId);
 	
 	public String removeMedicineFromCart(Integer cartId,Integer medicineId);

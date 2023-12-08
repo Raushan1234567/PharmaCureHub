@@ -49,9 +49,12 @@ public class CartController {
 		return new ResponseEntity<>(cartServiceInterface.getMedicine(cartId),HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("remove/{cartId}/{medicineId}")
-    public ResponseEntity<String> removeMedicine(@PathVariable Integer cartId, @PathVariable Integer medicineId) {
-        cartServiceInterface.removeMedicineFromCart(cartId, medicineId);
-        return ResponseEntity.ok("Medicine removed successfully from the cart.");
-    }
+
+	@DeleteMapping("/removeCartItems/{cartId}/{medicineId}")
+	public ResponseEntity<String> removeFromCart(@PathVariable Integer cartId, @PathVariable Integer medicineId){
+		cartServiceInterface.removeFromCart(cartId, medicineId);
+		return new ResponseEntity<String>("Items remove successfully", HttpStatus.OK);
+	}
+
+
 }
