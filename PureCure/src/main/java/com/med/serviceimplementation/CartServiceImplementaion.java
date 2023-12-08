@@ -88,6 +88,28 @@ public class CartServiceImplementaion implements CartServiceInterface{
         }
     }
 
+    @Override
+    public String removeMedicineFromCart(Integer cartId, Integer medicineId) {
+        Optional<Cart> optionalCart = cartRepository.findById(cartId);
+        Optional<Medicine> optionalMedicine = medicineRepository.findById(medicineId);
+
+        if (optionalCart.isPresent() && optionalMedicine.isPresent()) {
+            Cart cart = optionalCart.get();
+            Medicine medicine = optionalMedicine.get();
+
+            if (cart.getMedicines().contains(medicine)) {
+                cart.getMedicines().remove(medicine);
+//                medicine.getCarts().remove(cart);
+                cartRepository.save(cart);
+                return "Deleted Successfully";
+            } else {
+                throw new MedicineException("Medicine not found in the cart");
+            }
+        } else {
+            throw new CartException("Cart or Medicine not found");
+        }
+    }
+
 
 
    

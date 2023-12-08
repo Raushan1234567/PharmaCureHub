@@ -38,15 +38,16 @@ public class Customer {
 	private String customerAddress;
 	
 	@JsonIgnore
-	@OneToMany
+	@OneToMany(mappedBy = "customer")
 	private List<Orders> orderList1=new ArrayList<>();
 	
-	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Medicine> medicineList1=new ArrayList<>();
+	  @JsonIgnore
+	    @OneToMany(cascade = CascadeType.ALL)
+	    private List<Medicine> medicineList = new ArrayList<>();
 	
 	@JsonIgnore
-	@OneToOne
+	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
 	private Cart cart;
+
 	
 }
