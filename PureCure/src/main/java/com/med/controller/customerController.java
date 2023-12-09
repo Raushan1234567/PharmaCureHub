@@ -45,4 +45,11 @@ public class customerController {
 		
 	}
 	
+	@GetMapping("/findbyemail/{customerEmail}")
+	public ResponseEntity<Customer> findbyemail(@PathVariable String customerEmail){
+		return new ResponseEntity<Customer>(customerInterface.findByEmail(customerEmail),HttpStatus.OK);
+		
+	}
+	
+	
 }
