@@ -1,0 +1,53 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+#topdealDiv{
+    width: 95%;
+    position: absolute;
+    margin-top: 31.5rem;
+    margin-left: 1.6rem;
+    display: flex;
+    /* background-color: red; */
+}
+#topdealspara{
+   
+    width: 8.5rem;
+    border-radius: 5px;
+    color: teal;
+    margin-top: 0rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#topdealshr{
+   
+    width: 100%;
+    /* border: 2px; */
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px; 
+    border-top: 2px solid teal;
+    margin-top: 1rem;
+}
+
+#topdeals{
+    position: absolute;
+    width: 95%;
+    height: 10rem;
+    margin-top: 34.3rem;
+    margin-left: 1.6rem;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    /* background-color: teal; */
+    border-radius: 5px;
+}
+
+#topdeals img {
+  border-radius: 5px;
+  width: 19.5%;
+  height: auto;
+  height: 100%;
+  box-sizing: border-box;
+    
+} 
