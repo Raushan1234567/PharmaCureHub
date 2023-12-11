@@ -16,6 +16,8 @@ public interface CartServiceInterface {
 	
 	public void addMedicineToCart(Integer cartId, Integer medicineId);
 	
+	public String removeMedicineFromCart(Integer cartId,Integer medicineId);
+	
 	
 
 }

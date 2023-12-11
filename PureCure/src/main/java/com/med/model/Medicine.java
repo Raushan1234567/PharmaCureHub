@@ -28,6 +28,8 @@ public class Medicine {
 	
 	private double price;
 	
+	private String image;
+	
 	private int numberOfTablets;
 	
 	private String medicineDescription;

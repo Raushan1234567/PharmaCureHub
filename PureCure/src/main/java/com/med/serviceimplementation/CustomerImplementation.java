@@ -60,4 +60,17 @@ public class CustomerImplementation implements CustomerInterface{
 		}
 	}
 
+	@Override
+	public Customer findByEmail(String customerEmail) {
+		// TODO Auto-generated method stub
+	Optional<Customer> customer=	customerrepository.findBycustomerEmail(customerEmail);
+		if(customer.isPresent()) {
+			return customer.get();
+			
+		}else {
+			
+			throw new CustomerException("Customer Not found");
+		}
+	}
+
 }

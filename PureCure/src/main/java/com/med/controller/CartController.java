@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.med.model.Cart;
@@ -50,10 +49,12 @@ public class CartController {
 		return new ResponseEntity<>(cartServiceInterface.getMedicine(cartId),HttpStatus.CREATED);
 	}
 	
+
 	@DeleteMapping("/removeCartItems/{cartId}/{medicineId}")
 	public ResponseEntity<String> removeFromCart(@PathVariable Integer cartId, @PathVariable Integer medicineId){
 		cartServiceInterface.removeFromCart(cartId, medicineId);
 		return new ResponseEntity<String>("Items remove successfully", HttpStatus.OK);
 	}
+
 
 }
