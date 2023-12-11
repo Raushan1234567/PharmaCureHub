@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PharmaCureHub</title>
     <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="banner.css">
+    <link rel="stylesheet" href="topdeals.css">
 </head>
 <body>
-    <!-- <h1>Hello Welocome To Phama Cure Hub</h1> -->
+    <!-- Nav Bar Part -->
     <div id="navbar">
         <div id="logodiv">
             <img id="logoimage" src="Image/Pharmacurehub2.png" alt="">
@@ -19,12 +21,12 @@
         </div>
         <div id="cartnav">
             <img class="navContentimage" src="Image/Cart.png" alt="cartError">
-            <p class="navContentparagraph">Cart</p>
+            <p class="navContentparagraph" id="cartpara">Cart</p>
 
         </div>
         <div id="signupnav">
             <img class="navContentimage" src="Image/Signup.png" alt="signupError">
-            <p class="navContentparagraph">signup</p>
+            <p id="singupcontent", class="navContentparagraph">Signup</p>
 
         </div>
         <div id="bagnav">
@@ -33,6 +35,34 @@
 
         </div>
     </div>
+    <!-- Banner Part -->
+    <div id="slideshow-container">
+        <img class="slide" src="Image/bannerImage0.png" alt="Image 0">
+        <img class="slide" src="Image/bannerImage1.png" alt="Image 1">
+        <img class="slide" src="Image/bannerImage2.png" alt="Image 2">
+        <img class="slide" src="Image/bannerImage3.png" alt="Image 3">
+        <img class="slide" src="Image/bannerImage4.png" alt="Image 4">
+        <!-- Add more images as needed -->
+      
+        <!-- You can add more images here -->
+      </div>
+
+    <!-- Top Deals -->
+    <div id="topdealDiv">
+
+        <h2 id="topdealspara">Top Deals :</h2>
+        <hr id="topdealshr">
+
+    </div>
     
+    <div id="topdeals">
+        <img src="Image/bannerImage0.png" alt="Image0">
+        <img src="Image/bannerImage1.png" alt=" Image1">
+        <img src=" Image/bannerImage2.png" alt="Image2">
+        <img src="Image/bannerImage3.png" alt="Image3">
+        <img src="Image/bannerImage4.png" alt="Image4">
+    </div>
+
 </body>
+<script src="banner.js"></script>
 </html>
