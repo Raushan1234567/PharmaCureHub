@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.med.model.Medicine;
 import com.med.serviceinetrface.MedicineInterface;
-
 @CrossOrigin(origins = "*")
 @RequestMapping("/medicine")
 @RestController
