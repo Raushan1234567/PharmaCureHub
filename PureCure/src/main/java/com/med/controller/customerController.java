@@ -19,7 +19,7 @@ import com.med.serviceinetrface.CustomerInterface;
 import lombok.experimental.PackagePrivate;
 
 
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+
 @RestController
 public class customerController {
 

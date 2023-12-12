@@ -1,0 +1,55 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/006/712/985/small/abstract-health-medical-science-healthcare-icon-digital-technology-science-concept-modern-innovation-treatment-medicine-on-hi-tech-future-blue-background-for-wallpaper-template-web-design-vector.jpg');
+}
+
+h1 {
+    color: #fcf4f4;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.admin-section {
+    background-color: #fff;
+    background-image: url('https://img.freepik.com/free-vector/medical-healthcare-blue-color_1017-26807.jpg?size=626&ext=jpg&ga=GA1.1.301567648.1674828115&semt=ais');
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+.non-admin-message {
+    color: #888;
+    font-style: italic;
+    margin-top: 20px;
+    text-align: center;
+}
+button {
+    background-color: #4CAF50;
+    color: #fff; /* Change text color to white */
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button a {
+    text-decoration: none;
+    color: inherit; /* Inherit the color from the button */
+}
+
+button:hover {
+    background-color: #3e4216b7;
+}
+/* Add more styling as needed */
