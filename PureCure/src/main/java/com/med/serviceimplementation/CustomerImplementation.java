@@ -1,5 +1,6 @@
 package com.med.serviceimplementation;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -72,5 +73,23 @@ public class CustomerImplementation implements CustomerInterface{
 			throw new CustomerException("Customer Not found");
 		}
 	}
+
+	@Override
+	public List<Customer> findAllCustomer() {
+		// TODO Auto-generated method stub
+		List<Customer> custList = customerrepository.findAll();
+		return custList;
+	}
+
+	@Override
+	public Customer deleteCustomerById(Integer customerId) {
+		Customer customer = customerrepository.findById(customerId).get();
+		if(customer != null) customerrepository.delete(customer);
+		else throw new CustomerException("Customer doesn't exist");
+		// TODO Auto-generated method stub
+		return customer;
+	}
+
+	
 
 }
