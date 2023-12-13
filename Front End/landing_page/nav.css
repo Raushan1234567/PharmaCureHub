@@ -76,9 +76,15 @@ body{
         margin: 0.65rem 0px 0px 1rem;
         margin-left: 10px;
     }
-#cartnav{
+#medicinenav{
     display: flex;
     width: 6rem;
+}
+#medicinenav a{
+    text-decoration: none;
+}
+#medicinenav p{
+    margin-left: 0.25rem;
 }
 #signupnav{
     display: flex;
@@ -89,6 +95,10 @@ body{
 #bagnav{
     display: flex;
 }
+
+#signupnav a {
+    text-decoration: none;
+}
 .navContentimage{
     cursor: pointer;
     width: 3.5rem;
@@ -96,6 +106,7 @@ body{
     margin-top: 1rem;
 }
 .navContentparagraph{
+    text-decoration: none;
     cursor: pointer;
     width: 3.5rem;
     height: 3.5rem;
@@ -105,6 +116,7 @@ body{
     transition: color 0.1s;
     
 }
+
 
 .navContentparagraph:hover {
     color: red 

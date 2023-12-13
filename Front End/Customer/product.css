@@ -131,26 +131,88 @@ body{
     display: grid; 
     grid-template-columns: repeat(4,1fr);
     gap: 1rem; 
-    background-color: teal;
+    /* background-color: teal; */
     margin-left: 1.5rem;
     
 }
 #productContainer{
-    background-color: red;
+    /* background-color: red; */
+    /* width: 19%; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;;
+    border-radius: 10px;
+    margin: 0px;
+    padding: 0px;
 }
 #imageCombinedDiv{
+    width: 100%;
+    /* height: 40%; */
     display: flex;
+    justify-content: space-evenly;
+    /* background-color: blue; */
+
    
 }
 #productImage{
-    width: 65%;
-    background-color: green;
+    width: 50%;
+    /* bac /* background-color: green; */
+    border-radius: 5px;
 }
 #combineDiv{
     margin-left: 0.5rem;
     margin-top: 0rem;
-    background-color: yellow;
+    text-align: center;
+    /* background-color: yellow; */
+    width: 40%;
+    height: 2%;
+    /* font-size: 1rem; */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
 }
+
+.productCombineDivClass{
+    /* margin-left: 1rem; */
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    /* background-color: rebeccapurple; */
+    /* color: rgba(68, 0, 255, 0.922); */
+    margin: 5px;
+    margin-left: 15px;
+}
+#addToCart{
+    cursor: pointer;
+    margin-left: 12rem;
+    padding: 10px;
+    margin-bottom: 1rem;
+    /* background-color: rgb(0, 179, 255); */
+    background-color: rgba(0, 179, 255, 0.817);
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+#productPrice{
+    /* background-color: red; */
+    margin: 0px;
+    margin-top: 30px;
+}
+#productTableteNumber{
+    /* background-color: teal; */
+    margin: 0px;
+    margin-top: 8px;
+}
+
+/* #productPrice,
+#productTableteNumber, */
+#productManufacturingDate{
+    margin: 0px;
+    margin-top: 10px;
+}
+#productExpiryDate {
+    margin: 0px; /* Adjust the top and bottom margins */
+    margin-top: 10px;
+}
+
 #productCombine{
-    background-color: white;
+    /* background-color: white; */
 }
+
+/* djhhhhhhhjhjhj */
+

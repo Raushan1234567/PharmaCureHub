@@ -41,7 +41,7 @@ function displayProducts(products) {
         const combinedDiv = document.createElement("div");
         combinedDiv.setAttribute("id","combineDiv");  
         combinedDiv.innerHTML = `
-            <p id="productPrice">Price: $${item.price}</p>
+            <p id="productPrice" >Price: $${item.price}</p>
             <p id="productTableteNumber">Pills: ${item.numberOfTablets}</p>
             <p id="productManufacturingDate">MFG: ${item.medicineManufacturingDate}</p>
             <p id="productExpiryDate">EXP: ${item.medicineExpiryDate}</p>
@@ -53,14 +53,16 @@ function displayProducts(products) {
         productCombine.setAttribute("id","productCombine");
         productCombine.innerHTML = `
         
-            <h4 id="productName">${item.medicineName}</h4>
-            <p id="productDescription">Desc: ${item.medicineDescription}</p>
-            <p id="productCompanyName">Company: ${item.companyName}</p>
-            <!-- <p id="productCategory">Category: ${item.category}</p> -->
+            <h4 id="productName" class = "productCombineDivClass">${item.medicineName}</h4>
+            <p id="productDescription" class = "productCombineDivClass">Desc: ${item.medicineDescription}</p>
+            <p id="productCompanyName" class = "productCombineDivClass">Company: ${item.companyName}</p>
+            <!-- <p id="productCategory" class = "productCombineDivClass">Category: ${item.category}</p> -->
             <!-- Add other fields as needed -->
         `;
-      
-        productDiv.append(imageCombinedDiv,productCombine)
+        const addToCart = document.createElement("button");
+        addToCart.setAttribute("id","addToCart");
+        addToCart.innerText = "Add To Cart"
+        productDiv.append(imageCombinedDiv,productCombine,addToCart);
         productContainerDiv.append(productDiv);
     });
 }
