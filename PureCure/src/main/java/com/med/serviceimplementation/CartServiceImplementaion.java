@@ -21,7 +21,7 @@ import com.med.serviceinetrface.CartServiceInterface;
 @Service
 
 public class CartServiceImplementaion implements CartServiceInterface{
-	
+
 	@Autowired
     private CartRepository cartRepository;
 
@@ -88,27 +88,27 @@ public class CartServiceImplementaion implements CartServiceInterface{
         }
     }
 
-    @Override
-    public String removeMedicineFromCart(Integer cartId, Integer medicineId) {
-        Optional<Cart> optionalCart = cartRepository.findById(cartId);
-        Optional<Medicine> optionalMedicine = medicineRepository.findById(medicineId);
-
-        if (optionalCart.isPresent() && optionalMedicine.isPresent()) {
-            Cart cart = optionalCart.get();
-            Medicine medicine = optionalMedicine.get();
-
-            if (cart.getMedicines().contains(medicine)) {
-                cart.getMedicines().remove(medicine);
-//                medicine.getCarts().remove(cart);
-                cartRepository.save(cart);
-                return "Deleted Successfully";
-            } else {
-                throw new MedicineException("Medicine not found in the cart");
-            }
-        } else {
-            throw new CartException("Cart or Medicine not found");
-        }
-    }
+//    @Override
+//    public String removeMedicineFromCart(Integer cartId, Integer medicineId) {
+//        Optional<Cart> optionalCart = cartRepository.findById(cartId);
+//        Optional<Medicine> optionalMedicine = medicineRepository.findById(medicineId);
+//
+//        if (optionalCart.isPresent() && optionalMedicine.isPresent()) {
+//            Cart cart = optionalCart.get();
+//            Medicine medicine = optionalMedicine.get();
+//
+//            if (cart.getMedicines().contains(medicine)) {
+//                cart.getMedicines().remove(medicine);
+////                medicine.getCarts().remove(cart);
+//                cartRepository.save(cart);
+//                return "Deleted Successfully";
+//            } else {
+//                throw new MedicineException("Medicine not found in the cart");
+//            }
+//        } else {
+//            throw new CartException("Cart or Medicine not found");
+//        }
+//    }
 
 
     public void removeFromCart(int cartId, int medicineId) {
@@ -145,7 +145,23 @@ public class CartServiceImplementaion implements CartServiceInterface{
 //            medicineRepository.save(medicine);
 //        }
     }
-   
+
+    @Override
+    public String removeCartById(Integer cartId) {
+        // Check if the cart exists
+        Optional<Cart> cartOptional = cartRepository.findById(cartId);
+
+        if (cartOptional.isPresent()) {
+            // If the cart exists, delete it
+            cartRepository.deleteById(cartId);
+            return "Cart deleted successfully";
+        } else {
+            // If the cart does not exist, throw an exception or handle accordingly
+            throw new RuntimeException("Cart not found for this id: " + cartId);
+        }
+    }
+
+	
 
 
 }

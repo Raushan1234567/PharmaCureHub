@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.med.model.Cart;
 import com.med.model.Medicine;
 import com.med.serviceinetrface.CartServiceInterface;
+@CrossOrigin(origins = "*")
 @RequestMapping("/cart")
 @RestController
 public class CartController {
@@ -54,6 +56,11 @@ public class CartController {
 	public ResponseEntity<String> removeFromCart(@PathVariable Integer cartId, @PathVariable Integer medicineId){
 		cartServiceInterface.removeFromCart(cartId, medicineId);
 		return new ResponseEntity<String>("Items remove successfully", HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/removecart/{cartId}")
+	public ResponseEntity<String> removeCart(@PathVariable Integer cartId){
+		return new ResponseEntity<String>(cartServiceInterface.removeCartById(cartId),HttpStatus.OK);
 	}
 
 

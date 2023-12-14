@@ -1,3 +1,4 @@
+
 package com.med.model;
 
 import java.util.ArrayList;
