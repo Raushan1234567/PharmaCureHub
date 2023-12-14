@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-image: url('https://www.freewebheaders.com/wp-content/gallery/healthcare_1/stethoscopes-and-medical-services-header.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100vh;
+}
+
+#navbar {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background-color: rgb(0, 179, 255);
+    height: 5rem;
+    opacity: 120%;
+    z-index: 1000;
+    align-items: center; /* Center items vertically within the navbar */
+}
+
+.signup-container {
+    background-color: #8b1a1a;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtDvu3UrHfls8sRia4VolBEqvqKt9tly-Wpg&usqp=CAU');
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    margin-left: 10rem;
+    margin-top: 10rem;
+    color: #080505;
+}
+
+.signup-container h2 {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #0f0a0a;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+#alreadyhaveaccount a {
+    text-decoration: none;
+}

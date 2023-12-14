@@ -9,7 +9,7 @@ function submitForm(event) {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json', 
+            'Accept': 'application/json',
         },
     })
     .then(response => {
@@ -25,13 +25,21 @@ function submitForm(event) {
             alert("Login successful");
             console.log('Login successful');
 
+            const signup = document.getElementById("singupcontent");
+            const username = `Hi, ${data.customerfirstName}`;
+            signup.innerText = username;
+
+            // Store user information in localStorage
+            localStorage.setItem('user', JSON.stringify({
+                customerId: data.customerId,
+                username: data.customerfirstName,
+            }));
+
             // Create a cart for the customer
             createCart(data.customerId);
-            
-
-            window.location.href = "/landing_page/index.html";
 
             // Redirect or perform other actions here
+            window.location.href="../landing_page/index.html";
         } else {
             console.log('Invalid email or password');
             // Handle incorrect credentials here
@@ -42,6 +50,16 @@ function submitForm(event) {
         console.error('Error during login:', error);
     });
 }
+// Add this code to your script
+document.addEventListener('DOMContentLoaded', () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (user) {
+        const signup = document.getElementById("singupcontent");
+        signup.innerText = `Hi, ${user.username}`;
+    }
+});
+
 function createCart(customerId) {
     const cartData = {}; // No need to include cartId in the request body
 
