@@ -19,6 +19,9 @@ import com.med.serviceimplementation.CustomerImplementation;
 import com.med.serviceinetrface.CustomerInterface;
 
 
+import lombok.experimental.PackagePrivate;
+
+
 @CrossOrigin(origins = "*")
 @RestController
 public class customerController {
