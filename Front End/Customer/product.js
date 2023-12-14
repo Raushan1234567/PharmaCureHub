@@ -67,3 +67,11 @@ function displayProducts(products) {
 
 // Call the fetchData function when the page loads
 window.onload = fetchData;
+document.addEventListener('DOMContentLoaded', () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (user) {
+        const signup = document.getElementById("singupcontent");
+        signup.innerText = `Hi, ${user.username}`;
+    }
+});

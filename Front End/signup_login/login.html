@@ -4,10 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login Form</title>
-    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./login2.css">
+    <link rel="stylesheet" href="../landing_page/nav.css">
   
 </head>
 <body>
+    <div id="navbar">
+        <div id="logodiv">
+            <a href="index.html">
+                <img id="logoimage" src="../landing_page/Image/Pharmacurehub2.png" alt="">
+            </a>
+            
+
+        </div>
+        <div id="search-bar">
+            <input id="input-search" type="text" placeholder="Enter Medicine name">
+            <img id="search-logo" src="../landing_page/Image/searchicon.png" alt="Search Icon">
+        </div>
+        <div id="medicinenav">
+            <a href="../Customer/product.html">
+                <img class="navContentimage" src="../landing_page/Image/medicine_tablete.png" alt="madicine_tableteError">
+            </a>
+            <a href="../Customer/product.html">
+                <p class="navContentparagraph" id="medicine_tablete">Medicine</p>
+            </a>
+            
+
+        </div>
+        <div id="signupnav">
+            <a href="../signup_login/Signup.html">
+                <img class="navContentimage"  src="../landing_page/Image/Signup.png" alt="signupError">
+            </a>
+            <a href="../signup_login/Signup.html">
+                <p id="singupcontent" class="navContentparagraph">Signup</p>
+            </a>
+            
+
+        </div>
+        <div id="bagnav">
+            <img class="navContentimage" src="../landing_page/Image/Orders.png" alt="ordersError">
+            <p class="navContentparagraph">Orders</p>
+
+        </div>
+    </div>
     <div class="signup-container">
         <h2>Sign In</h2>
         <form id="signupForm" onsubmit="submitForm(event)">
