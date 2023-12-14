@@ -41,10 +41,10 @@ function displayProducts(products) {
         const combinedDiv = document.createElement("div");
         combinedDiv.setAttribute("id","combineDiv");  
         combinedDiv.innerHTML = `
-            <p id="productPrice" >Price: $${item.price}</p>
-            <p id="productTableteNumber">Pills: ${item.numberOfTablets}</p>
-            <p id="productManufacturingDate">MFG: ${item.medicineManufacturingDate}</p>
-            <p id="productExpiryDate">EXP: ${item.medicineExpiryDate}</p>
+            <p><span class="combinedDivParameter">Price:</span> $${item.price}</p>
+            <p><span class="combinedDivParameter">Pills:</span> ${item.numberOfTablets}</p>
+            <p><span class="combinedDivParameter">MFG:</span> ${item.medicineManufacturingDate}</p>
+            <p><span class="combinedDivParameter">EXP:</span> ${item.medicineExpiryDate}</p>
         `;
 
         imageCombinedDiv.append(combinedDiv);
@@ -53,11 +53,9 @@ function displayProducts(products) {
         productCombine.setAttribute("id","productCombine");
         productCombine.innerHTML = `
         
-            <h4 id="productName" class = "productCombineDivClass">${item.medicineName}</h4>
-            <p id="productDescription" class = "productCombineDivClass">Desc: ${item.medicineDescription}</p>
-            <p id="productCompanyName" class = "productCombineDivClass">Company: ${item.companyName}</p>
-            <!-- <p id="productCategory" class = "productCombineDivClass">Category: ${item.category}</p> -->
-            <!-- Add other fields as needed -->
+            <h3 id="productName" class = "productCombineDivClass">${item.medicineName}</h3>
+            <p id="productDescription" class = "productCombineDivClass"><span class="productComibineParameter"> Desc:</span> ${item.medicineDescription}</p>
+            <p id="productCompanyName" class = "productCombineDivClass"><span class="productComibineParameter"> Company:</span>Company: ${item.companyName}</p>
         `;
         const addToCart = document.createElement("button");
         addToCart.setAttribute("id","addToCart");
