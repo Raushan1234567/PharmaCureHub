@@ -25,8 +25,12 @@ function submitForm(event) {
    
     .then(data => {
         if (!data.ok) {
-            throw new Error('User with this email already exists');
-        }else{
+           alert('User with this email already exists');
+        //    window.location.href = "";
+        window.location.href="login.html";
+        }
+       
+        else{
             alert("Successfully created")
         }
        
