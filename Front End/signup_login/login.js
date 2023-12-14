@@ -23,8 +23,12 @@ function submitForm(event) {
     .then(data => {
         // Compare retrieved data with input data
         if (data && data.customerPassword  === password) {
+            
             alert("Login successful")
+           
+           
             console.log('Login successful');
+            window.location.href = "/landing_page/index.html";
             // Redirect or perform other actions here
         } else {
             //console.log('Server response:', data);
