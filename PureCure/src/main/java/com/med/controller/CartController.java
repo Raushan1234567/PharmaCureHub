@@ -1,6 +1,7 @@
 package com.med.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -62,6 +63,14 @@ public class CartController {
 	public ResponseEntity<String> removeCart(@PathVariable Integer cartId){
 		return new ResponseEntity<String>(cartServiceInterface.removeCartById(cartId),HttpStatus.OK);
 	}
+	
+	@GetMapping("/getCartIdByCustomerId/{customerId}")
+    public ResponseEntity<Integer> getCartIdByCustomerId(@PathVariable Integer customerId) {
+        Integer cartId = cartServiceInterface.findCartIdByCustomerId(customerId);
+
+        // Check if a cart id with the given customerId exists
+        return new ResponseEntity<>(cartId, HttpStatus.OK);
+    }
 
 
 }

@@ -15,12 +15,10 @@ public interface CartServiceInterface {
 	public void removeFromCart(int cartId, int medicineId);
 	
 	public void addMedicineToCart(Integer cartId, Integer medicineId);
-	
-	
-
-	
 
 	public String removeCartById(Integer cartId);
+	
+	public Integer findCartIdByCustomerId(Integer customerId);
 	
 	
 

@@ -161,6 +161,20 @@ public class CartServiceImplementaion implements CartServiceInterface{
         }
     }
 
+	@Override
+	public Integer findCartIdByCustomerId(Integer customerId) {
+		// TODO Auto-generated method stub
+		Integer cartId=0;
+		Customer customer = customerRepository.findById(customerId).get();
+		if(customer != null) {
+			Optional<Integer> op = cartRepository.findCartIdByCustomerId(customerId);
+			if(op.isPresent())
+			cartId = op.get();
+			else throw new CartException("Cart not found");
+		}else throw new CustomerException("Customer not found");
+		return cartId;
+	}
+
 	
 
 

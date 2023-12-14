@@ -14,7 +14,7 @@ function submitForm(event) {
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error("'You don't have account.Please signin first");
         }
         return response.json();
     })
