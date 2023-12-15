@@ -129,7 +129,7 @@ body{
     margin-top: 6rem;
     width: 95%;
     display: grid; 
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 1rem; 
     /* background-color: teal; */
     margin-left: 1.5rem;
