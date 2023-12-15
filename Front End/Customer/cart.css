@@ -1,0 +1,81 @@
+/* body{
+    margin: 0px;
+    padding: 0px;
+} */
+
+
+
+.cartMainDiv {
+    position: fixed;
+    width: 95%;
+    background-color: teal;
+    height: 560px;
+    margin-left: 2rem;
+    margin-top: 6rem;
+    display: flex;
+   
+    z-index: 120;
+    /* transform: translate(0%,-1%); */
+    transition: 200ms;
+    top: -93%;
+    
+}
+
+.showPopform{
+    top: -1%;
+}
+
+#container {
+    position: absolute;
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    
+    overflow-y:  auto;
+    height: 559px;
+}
+
+#itemContainer {
+  
+    display: flex;
+    /* justify-content: space-between; */
+    width: 95%;
+    margin: auto;
+    background-color: green;
+}
+
+
+#firstDiv{
+    width: 25%;
+    background-color: red;
+    /* margin-left: 1rem; */
+}
+#secondDiv{
+    width: 27%;
+    background-color: pink;
+    margin-left: 1rem;
+}
+#thirdDiv{
+    width: 25%;
+    background-color: yellow;
+    margin-left: 1rem;
+}
+#medicineImage{
+    width: 100%;
+    height: 100%;
+}
+
+#paymentDiv{
+    width: 35%;
+    background-color: black;
+    margin-left: 63%;
+    margin-top: 10%;
+    opacity: 120%;
+}
+#payImage{
+    width: 100%;
+    
+    /* margin-top: 100px; */
+}

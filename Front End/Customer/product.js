@@ -1,3 +1,5 @@
+
+
 // Function to fetch data from the API
 var cartId = null ;
 function fetchData() {
@@ -62,21 +64,19 @@ function displayProducts(products) {
         addToCart.setAttribute("id","addToCart");
         addToCart.innerText = "Add To Cart"
          
-         console.log(addToCart);
+        //  console.log(addToCart);
         addToCart.addEventListener('click',()=>{
-            console.log("line1");
+            // console.log("line1");
             let customerId = null;
             // let cart_id = null;
 
             const userString = localStorage.getItem('user');
-            console.log("line2");
-                // Check if the item exists in local storage
                 if (userString) {
                     // Parse the JSON string to get the object
                     const user = JSON.parse(userString);
                     customerId = user.customerId;
                 }
-                console.log("line3");
+                // console.log("line3");
             fetch(`http://localhost:9090/cart/getCartIdByCustomerId/${customerId}`, {
                 method: 'GET',
                 headers: {
@@ -85,15 +85,15 @@ function displayProducts(products) {
                 },
             })            
                 .then(response =>{
-                    console.log("line4");
+                    // console.log("line4");
                     if(!response.ok){
                         throw new Error("Network response was not ok");
                     }
                     return response.json();
                 })
                 .then(data =>{
-                    console.log("line5");
-                    console.log("Data is:"+data+" "+typeof(data));
+                    // console.log("line5");
+                    // console.log("Data is:"+data+" "+typeof(data));
                     
                     let cart_id = data;
                     // http://localhost:9090/cart/addMedicine
@@ -109,36 +109,27 @@ function displayProducts(products) {
                     
                 }) 
                 .then(response =>{
-                        // if(!response.ok){
-                        //     throw new Error("Network response was not ok");
-                        // }
-                        response.json;
+                    if(!response.ok){
+                        alert("Medicine already exist");
+                    }else  alert("item added successfully");
+                    // response.json;
+                       
                 }) 
-                .then(data =>{
+                // .then(data =>{
+                //     alert("item added successfully");
 
-                })
+                // })
 
             })
 
                 
                 
         })
-        console.log("line61");
-        
-        // function getCartId(cart){
-        //     if(cart != null){
-        //         cart.forEach(items =>{
-        //             cartId = items.getCartId;
-        //         })
-        //     }
-            
-
-        // }
-        // console.log("Cart id is : "+cartId);
+      
         productDiv.append(imageCombinedDiv,productCombine,addToCart);
-        console.log("line7");
+        // console.log("line7");
         productContainerDiv.append(productDiv);
-        console.log("line8");
+        // console.log("line8");
     });
 }
 

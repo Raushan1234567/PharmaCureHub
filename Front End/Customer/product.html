@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharma Cure Hub</title>
     <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="cart.css">
     
 </head>
 <body>
@@ -21,18 +22,18 @@
             <img id="search-logo" src="Image/searchicon.png" alt="Search Icon">
         </div>
         <div id="cartnav">
-            <img class="navContentimage" src="Image/Cart.png" alt="cartError">
-            <p class="navContentparagraph" id="cartpara">Cart</p>
+            <img class="navContentimage" onclick="showModelPop()" src="Image/Cart.png" alt="cartError">
+            <p class="navContentparagraph" id="cartpara" onclick="showModelPop()">Cart</p>
 
         </div>
         <div id="signupnav">
-            <img class="navContentimage" src="Image/Signup.png" alt="signupError">
-            <p id="singupcontent", class="navContentparagraph">Signup</p>
+            <img class="navContentimage" onclick="closeModelPop()" src="Image/Signup.png" alt="signupError">
+            <p id="singupcontent", onclick="closeModelPop()" class="navContentparagraph">Signup</p>
 
         </div>
         <div id="bagnav">
-            <img class="navContentimage" src="Image/Orders.png" alt="ordersError">
-            <p class="navContentparagraph">Orders</p>
+            <img class="navContentimage" onclick="closeModelPop()" src="Image/Orders.png" alt="ordersError">
+            <p class="navContentparagraph" onclick="closeModelPop()">Orders</p>
 
         </div>
     </div>
@@ -40,6 +41,19 @@
     <div id="productContainerDiv">
 
     </div>
+
+    <!-- Test *******************************  -->
+    <div class="cartMainDiv" id="cartMainDiv">
+        <!-- <h1>Hey</h1> -->
+        <div id="container">
+            <!-- <h2>San</h2> -->
+        </div>
+        <div id="paymentDiv">
+            <img id="payImage" src="Image/bannerImage0.png" alt="">  
+        </div>
+        
+    </div>
 </body>
 <script src="product.js"></script>
+<script src="cart.js"></script>
 </html>
