@@ -10,11 +10,6 @@ function closeModelPop(){
 }
 
 
-
-
-
-
-
 let cartMainDiv = document.getElementById("cartMainDiv");
 
 const userString = localStorage.getItem('user');
@@ -89,13 +84,37 @@ fetch(`http://localhost:9090/cart/getCartIdByCustomerId/${customerId}`, {
                 <p><span class="productCombineSpanClass">EXP:</span> ${element.medicineExpiryDate}</p>
                 <p><span class="productCombineSpanClass">Company:</span> ${element.companyName}</p>
                 `;
-                itemContainer.append(firstDiv,secondDiv,thirdDiv)
+
+                // <div class="quantity-container">
+                    // <button class="quantity-button" onclick="decrement()">-</button>
+                    // <span class="quantity">1</span>
+                    // <button class="quantity-button" onclick="increment()">+</button>
+                // </div>
+
+                let forthDiv = document.createElement("div");
+                forthDiv.setAttribute("id","forthDiv");
+                forthDiv.setAttribute("class","quantity-container");
+                forthDiv.innerHTML = `
+                <button class="quantity-button" onclick="decrement()">-</button>
+                <span class="quantity">1</span>
+                <button class="quantity-button" onclick="increment()">+</button>
+                `;
+ 
+                let fifthDiv = document.createElement("div");
+                fifthDiv.setAttribute("id","fifthDiv");
+                fifthDiv.setAttribute("class","remove-container");
+                fifthDiv.innerHTML = `
+                <button class="remove-button" onclick="removefromCart()">Remove</button>
+                `;
+
+
+                itemContainer.append(firstDiv,secondDiv,thirdDiv,forthDiv,fifthDiv)
                 container.append(itemContainer);
                 cartMainDiv.append(container);
                 
             });
         }
-        // console.log(data);
+        
     }
 })
  
