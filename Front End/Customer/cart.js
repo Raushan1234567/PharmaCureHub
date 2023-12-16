@@ -77,17 +77,17 @@ fetch(`http://localhost:9090/cart/getCartIdByCustomerId/${customerId}`, {
                 let secondDiv = document.createElement("div");
                 secondDiv.setAttribute("id","secondDiv");
                 secondDiv.innerHTML = `
-                <h3 id="productName" class = "productCombineDivClass">${element.medicineName}</h3>
-                <p><span class="combinedDivParameter">Price:</span> ${element.price}</p>
-                 <p><span class="combinedDivParameter">Pills:</span> ${element.numberOfTablets}</p>
+                <h3 id="medicineName" class = "productCombineDivClass"> ${element.medicineName}</h3>
+                <p id = "medicinePrice"><span class="combinedDivParameter">Price: $</span>${element.price}</p>
+                 <p id = "numberOfPills"><span class="combinedDivParameter">Pills:</span> ${element.numberOfTablets}</p>
                 `;
 
                 let thirdDiv = document.createElement("div");
                 thirdDiv.setAttribute("id","thirdDiv");
                 thirdDiv.innerHTML = `
-                <p id="productName" class = "productCombineDivClass">MFG: ${element.medicineManufacturingDate}</p>
-                <p><span class="combinedDivParameter">EXP:</span> ${element.medicineExpiryDate}</p>
-                <p><span class="combinedDivParameter">Company:</span> ${element.companyName}</p>
+                <p id="productMFG"><span class = "productCombineSpanClass">MFG:</span> ${element.medicineManufacturingDate}</p>
+                <p><span class="productCombineSpanClass">EXP:</span> ${element.medicineExpiryDate}</p>
+                <p><span class="productCombineSpanClass">Company:</span> ${element.companyName}</p>
                 `;
                 itemContainer.append(firstDiv,secondDiv,thirdDiv)
                 container.append(itemContainer);
