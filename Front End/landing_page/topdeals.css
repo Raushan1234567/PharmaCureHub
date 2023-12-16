@@ -1,6 +1,7 @@
 body{
     margin: 0px;
     padding: 0px;
+  
 }
 #topdealDiv{
     width: 95%;
@@ -8,6 +9,7 @@ body{
     margin-top: 31.5rem;
     margin-left: 1.6rem;
     display: flex;
+    /* height: 20rem; */
     /* background-color: red; */
 }
 #topdealspara{
