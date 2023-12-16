@@ -23,3 +23,25 @@ document.addEventListener('DOMContentLoaded', function () {
         signup.innerText = `Hi, ${user.username}`;
     }
 });
+let home__logoutCont = document.getElementById("home__logoutCont");
+let home__logoutBtn = document.getElementById("home__logoutBtn");
+
+// Event listener for the logout button
+home__logoutBtn.addEventListener('click', () => {
+    // Fetch the cart ID by customer ID (assuming you need it for cart removal)
+    const userString = localStorage.getItem('user');
+    let customerId;
+
+    if (userString) {
+        const user = JSON.parse(userString);
+        customerId = user.customerId;
+        localStorage.removeItem('user');
+
+    alert("Logout successful")
+    }
+
+    // Remove the user details from localStorage
+    
+});
+
+
