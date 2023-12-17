@@ -9,6 +9,31 @@ function closeModelPop(){
     document.querySelector('.cartMainDiv').classList.remove('showPopform')
 }
 
+let quantities = {};
+function increment(itemId) {
+    if (!quantities[itemId]) {
+        quantities[itemId] = 1;
+    } else {
+        quantities[itemId]++;
+    }
+    updateQuantity(itemId);
+}
+
+function decrement(itemId) {
+    if (quantities[itemId] && quantities[itemId] > 1) {
+        quantities[itemId]--;
+        updateQuantity(itemId);
+    }
+}
+
+function updateQuantity(itemId) {
+    const quantityElement = document.querySelector(`[data-item-id="${itemId}"] .quantity`);
+    if (quantityElement) {
+        quantityElement.innerText = quantities[itemId];
+    }
+}
+
+
 
 let cartMainDiv = document.getElementById("cartMainDiv");
 
@@ -38,6 +63,7 @@ fetch(`http://localhost:9090/cart/getCartIdByCustomerId/${customerId}`, {
     // console.log("Data is:"+data+" "+typeof(data));
     
     let cart_id = data;
+    
     fetch(`http://localhost:9090/cart/getcartItems/${cart_id}`, {
         method: 'GET',
         headers: {
@@ -95,19 +121,63 @@ fetch(`http://localhost:9090/cart/getCartIdByCustomerId/${customerId}`, {
                 forthDiv.setAttribute("id","forthDiv");
                 forthDiv.setAttribute("class","quantity-container");
                 forthDiv.innerHTML = `
-                <button class="quantity-button" onclick="decrement()">-</button>
+                <button class="quantity-button" onclick="decrement(${element.medicineId})">-</button>
                 <span class="quantity">1</span>
-                <button class="quantity-button" onclick="increment()">+</button>
+                <button class="quantity-button" onclick="increment(${element.medicineId})">+</button>
                 `;
  
                 let fifthDiv = document.createElement("div");
                 fifthDiv.setAttribute("id","fifthDiv");
                 fifthDiv.setAttribute("class","remove-container");
-                fifthDiv.innerHTML = `
-                <button class="remove-button" onclick="removefromCart()">Remove</button>
-                `;
+                let removebutton = document.createElement("button");
+                removebutton.setAttribute("id","reomvefromcart");
+                removebutton.innerText = "Remove"
+
+                removebutton.addEventListener('click',() =>{
+                    let customerId = null;
+                    
+                    const userString = localStorage.getItem('user');
+                        if (userString) {
+                            // Parse the JSON string to get the object
+                            const user = JSON.parse(userString);
+                            customerId = user.customerId;
+                        }
+                        // console.log("line3");
+                    fetch(`http://localhost:9090/cart/getCartIdByCustomerId/${customerId}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                        },
+                    }) 
+                    .then(response =>{
+                        return response.json();
+                    })
+                    .then(data =>{
+                        let cart_id = data;
+                        fetch(`http://localhost:9090/cart/removeCartItems/${cart_id}/${element.medicineId}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                            },
+                        })
+                        .then(response =>{
+                            if(!response.ok){
+                               alert("Medicine doesn't exist"); 
+                            }else {
+                                alert("Medicine Deleted");
+                                
+                            }
+                            
+                        }) 
+                    })
+                                   
+                    // showMedicine()
+                })
 
 
+                fifthDiv.append(removebutton);
                 itemContainer.append(firstDiv,secondDiv,thirdDiv,forthDiv,fifthDiv)
                 container.append(itemContainer);
                 cartMainDiv.append(container);
@@ -117,6 +187,7 @@ fetch(`http://localhost:9090/cart/getCartIdByCustomerId/${customerId}`, {
         
     }
 })
+
  
                     
                     

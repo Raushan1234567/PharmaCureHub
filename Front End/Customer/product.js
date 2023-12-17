@@ -87,6 +87,7 @@ function displayProducts(products) {
                 .then(response =>{
                     // console.log("line4");
                     if(!response.ok){
+                        alert("login first!");
                         throw new Error("Network response was not ok");
                     }
                     return response.json();
@@ -111,7 +112,11 @@ function displayProducts(products) {
                 .then(response =>{
                     if(!response.ok){
                         alert("Medicine already exist");
-                    }else  alert("item added successfully");
+                    }else {
+                        alert("item added successfully");
+                        window.location.reload();
+                    } 
+
                     // response.json;
                        
                 }) 
