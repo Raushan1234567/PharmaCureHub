@@ -132,7 +132,7 @@ body{
     grid-template-columns: repeat(4,1fr);
     gap: 1rem; 
     /* background-color: teal; */
-    margin-left: 1.5rem;
+    margin-left: 2.1rem;
     
 }
 #productContainer{
@@ -156,53 +156,79 @@ body{
     width: 50%;
     /* bac /* background-color: green; */
     border-radius: 5px;
+    margin-top: 1rem;
 }
 #combineDiv{
     margin-left: 0.5rem;
     margin-top: 0rem;
-    text-align: center;
+    text-align: left;
     /* background-color: yellow; */
     width: 40%;
     /* height: 2%; */
     /* font-size: 1rem; */
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* justify-content: left; */
     
 }
 
-.productCombineDivClass{
-    /* margin-left: 1rem; */
-    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
-    /* background-color: rebeccapurple; */
-    /* color: rgba(68, 0, 255, 0.922); */
-    margin: 5px;
-    margin-left: 15px;
+/* .productCombineDivClass{
+   margin-top: 2rem;
+   background-color: royalblue;
+   margin-left: 2rem;
+} */
+
+#productName{
+    /* background-color: yellow; */
+    margin-top: 1rem;
+    margin-left: 0px;
+    margin-left: 0.5rem;
+    
 }
+#productDescription{
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+}
+#productCompanyName{
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+}
+
+
 #addToCart{
     cursor: pointer;
-    margin-left: 50%;
-    padding: 10px;
-    margin-bottom: 1rem;
+    /* margin-left: 50%; */
+    /* padding: 10px; */
+    margin-top: 10%;
     /* background-color: rgb(0, 179, 255); */
-    background-color: rgba(0, 179, 255, 0.817);
+    background-color: #136cbe;
     border: none;
     border-radius: 5px;
     color: white;
+    /* padding-left: 31%;
+    padding-right: 31%; */
+    padding: 5% 33% 5% 33%;
+    font-size: larger;
+    font-weight: bold;
+}
+#addToCart:hover{
+    background-color: rgba(0, 128, 0, 0.842);
 }
 .combinedDivParameter{
     /* background-color: red; */
     margin: 0px;
     margin-top: 30px;
     font-size: 1.2rem;
+    text-align: left;
 }
 
 .productComibineParameter{
     font-size: 1.2rem;
 }
-#productTableteNumber{
-    /* background-color: teal; */
+/* #productTableteNumber{
+    background-color: teal;
     margin: 0px;
     margin-top: 8px;
-}
+} */
 
 /* #productPrice,
 #productTableteNumber, */

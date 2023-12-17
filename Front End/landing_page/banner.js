@@ -37,7 +37,8 @@ home__logoutBtn.addEventListener('click', () => {
         customerId = user.customerId;
         localStorage.removeItem('user');
 
-    alert("Logout successful")
+    alert("Logout successful");
+    window.location.reload();
     }
 
     // Remove the user details from localStorage
