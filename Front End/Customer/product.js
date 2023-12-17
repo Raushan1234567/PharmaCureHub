@@ -44,10 +44,10 @@ function displayProducts(products) {
         const combinedDiv = document.createElement("div");
         combinedDiv.setAttribute("id","combineDiv");  
         combinedDiv.innerHTML = `
-            <p><span class="combinedDivParameter">Price:</span> $${item.price}</p>
-            <p><span class="combinedDivParameter">Pills:</span> ${item.numberOfTablets}</p>
-            <p><span class="combinedDivParameter">MFG:</span> ${item.medicineManufacturingDate}</p>
-            <p><span class="combinedDivParameter">EXP:</span> ${item.medicineExpiryDate}</p>
+            <p id = "productPrice"><span class="combinedDivParameter">Price:</span> $${item.price}</p>
+            <p id = "productNoPills"><span class="combinedDivParameter">Pills:</span> ${item.numberOfTablets}</p>
+            <p id = "productMFG"><span class="combinedDivParameter">MFG:</span> ${item.medicineManufacturingDate}</p>
+            <p id = "productPrice"><span class="combinedDivParameter">EXP:</span> ${item.medicineExpiryDate}</p>
         `;
 
         imageCombinedDiv.append(combinedDiv);
@@ -114,7 +114,7 @@ function displayProducts(products) {
                         alert("Medicine already exist");
                     }else {
                         alert("item added successfully");
-                        window.location.reload();
+                        
                     } 
 
                     // response.json;

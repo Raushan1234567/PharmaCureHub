@@ -8,10 +8,10 @@
 .cartMainDiv {
     position: fixed;
     width: 95%;
-    background-color: skyblue;
+    background-color: #136cbe;
     height: 560px;
-    margin-left: 1.5rem;
-    margin-top: 6rem;
+    margin-left: 2.1rem;
+    margin-top: 6.1rem;
     display: flex;
    
     z-index: 120;
@@ -114,8 +114,11 @@
     
     /* margin-top: 100px; */
 }
-.productCombineDivClass{
-   margin: 0px;
+.cartCombineDivClass{
+    color: white;
+}
+.cartCombingClass{
+    color: white;
 }
 #medicineName{
     /* background-color: yellow; */
@@ -138,7 +141,7 @@
 }
   
 .quantity-button {
-    width: 2.5rem;
+    width: 3.5rem;
     height: 2rem;
     font-size: 16px;
     /* background-color: #3498db; */
@@ -148,7 +151,12 @@
     cursor: pointer;
     border: 0px;
 }
-  
+.incdescont{
+    /* background-color: red; */
+    /* width: 50%; */
+    /* font-size: 50px;
+    margin-bottom: 2rem; */
+}
 .quantity {
     padding: 0 10px;
     font-size: 18px;
