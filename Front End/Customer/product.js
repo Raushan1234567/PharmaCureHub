@@ -110,7 +110,7 @@ function displayProducts(products) {
                     
                 }) 
                 .then(response =>{
-                    if(!response.ok){
+                    if(!response.ok){   
                         alert("Medicine already exist");
                     }else {
                         alert("item added successfully");
