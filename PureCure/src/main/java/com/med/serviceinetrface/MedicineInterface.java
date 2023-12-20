@@ -14,7 +14,7 @@ public interface MedicineInterface {
 	
 	public Medicine findById(Integer medicineId);
 	
-	public Medicine findByName(String medicineName);
+	public List<Medicine> findByName(String medicineName);
 	
 	public List<Medicine> findByCategory(String medicineCategory);
 	

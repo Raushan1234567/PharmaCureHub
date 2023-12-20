@@ -20,11 +20,15 @@ public class MedicineImplementation implements MedicineInterface{
 	
 	@Override
 	public Medicine addMedicine(Medicine medicine) {
-		Medicine existingMedicine= medicineRepository.findByMedicineName(medicine.getMedicineName());
-		Medicine existingMedicine1=medicineRepository.findByCompanyName(medicine.getCompanyName());
-		if(existingMedicine !=null && existingMedicine1 !=null) {
+		List<Medicine> opmedicineName  = medicineRepository.findByMedicineName(medicine.getMedicineName());
+		List<Medicine> existingMedicine1=medicineRepository.findByCompanyName(medicine.getCompanyName());
+		System.out.println(opmedicineName);
+		System.out.println(existingMedicine1);
+		if(!opmedicineName.isEmpty() && !existingMedicine1.isEmpty()) {
 			throw new MedicineException("Medicine already exist by this name and company");
 		}
+
+		else
 		return medicineRepository.save(medicine);
 	}
 
@@ -59,9 +63,9 @@ public class MedicineImplementation implements MedicineInterface{
 	}
 
 	@Override
-	public Medicine findByName(String medicineName) {
+	public List<Medicine>  findByName(String medicineName) {
 		
-	Medicine medicine=medicineRepository.findByMedicineName(medicineName);
+	List<Medicine>  medicine=medicineRepository.findByMedicineName(medicineName);
 		if(medicine ==null) {
 			throw new MedicineException("Medicine not exist by this name");
 		}

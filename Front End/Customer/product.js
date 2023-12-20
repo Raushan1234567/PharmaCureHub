@@ -1,6 +1,4 @@
 
-
-// Function to fetch data from the API
 var cartId = null ;
 function fetchData() {
     fetch("http://localhost:9090/medicine/findAll")
@@ -11,9 +9,9 @@ function fetchData() {
             return response.json();
         })
         .then(data => {
-            // Check if data is an array
+        
             if (Array.isArray(data)) {
-                // Display the products
+            
                 displayProducts(data);
             } else {
                 console.error("Invalid data format");
@@ -24,11 +22,10 @@ function fetchData() {
         });
 }
 
-// Function to display products in the productContainer
+
 function displayProducts(products) {
     const productContainerDiv = document.getElementById("productContainerDiv");
 
-    // Iterate through the products and append to productContainer
     products.forEach(item => {
         const productDiv = document.createElement("div");
         productDiv.classList.add("product-item");
@@ -64,19 +61,19 @@ function displayProducts(products) {
         addToCart.setAttribute("id","addToCart");
         addToCart.innerText = "Add To Cart"
          
-        //  console.log(addToCart);
         addToCart.addEventListener('click',()=>{
-            // console.log("line1");
+          
             let customerId = null;
-            // let cart_id = null;
+         
 
             const userString = localStorage.getItem('user');
                 if (userString) {
-                    // Parse the JSON string to get the object
+           
                     const user = JSON.parse(userString);
                     customerId = user.customerId;
                 }
-                // console.log("line3");
+                console.log("customerId is: "+customerId);
+              
             fetch(`http://localhost:9090/cart/getCartIdByCustomerId/${customerId}`, {
                 method: 'GET',
                 headers: {
@@ -85,23 +82,18 @@ function displayProducts(products) {
                 },
             })            
                 .then(response =>{
-                    // console.log("line4");
+                  
                     if(!response.ok){
                         alert("login first!");
                         throw new Error("Network response was not ok");
                     }
                     return response.json();
                 })
-                .then(data =>{
-                    // console.log("line5");
-                    // console.log("Data is:"+data+" "+typeof(data));
-                    
+                .then(data =>{                    
                     let cart_id = data;
-                    // http://localhost:9090/cart/addMedicine
-                    // console.log("line6");
-                    // console.log("Cart_id is : "+cart_id);
+                    console.log("Cart_id is : "+cart_id);
 
-                    fetch(`http://localhost:9090/cart/addMedicine/${cart_id}/${item.medicineId}`, {
+                    fetch(`http://localhost:9090/cartItem/addMedicineToCart/${cart_id}/${item.medicineId}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -111,30 +103,22 @@ function displayProducts(products) {
                 }) 
                 .then(response =>{
                     if(!response.ok){
+                        console.log("Response: "+response);
                         alert("Medicine already exist");
                     }else {
                         alert("item added successfully");
                         
-                    } 
-
-                    // response.json;
-                       
+                    }                                          
                 }) 
-                // .then(data =>{
-                //     alert("item added successfully");
-
-                // })
-
+                
             })
-
-                
-                
+                            
         })
       
         productDiv.append(imageCombinedDiv,productCombine,addToCart);
-        // console.log("line7");
+      
         productContainerDiv.append(productDiv);
-        // console.log("line8");
+       
     });
 }
 

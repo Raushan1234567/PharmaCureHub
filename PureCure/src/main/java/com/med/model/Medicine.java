@@ -5,11 +5,13 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -42,8 +44,15 @@ public class Medicine {
 	
 	private String category;
 	
+	
+	
+//	@JsonIgnore
+//    @ManyToMany
+//    private List<Cart> carts = new ArrayList<>();
+	
 	@JsonIgnore
-    @ManyToMany(mappedBy = "medicines")
-    private List<Cart> carts = new ArrayList<>();
+	@OneToMany(mappedBy = "medicine", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItem> cartItems = new ArrayList<>();
+
 	
 }

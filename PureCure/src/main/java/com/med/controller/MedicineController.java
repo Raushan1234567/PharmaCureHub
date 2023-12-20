@@ -38,8 +38,8 @@ public class MedicineController {
 	}
 	
 	@GetMapping("/name/{medicineName}")
-	public ResponseEntity<Medicine> findByName(@PathVariable String medicineName){
-		return new ResponseEntity<Medicine>(medicineInterface.findByName(medicineName), HttpStatus.ACCEPTED);
+	public ResponseEntity<List<Medicine> > findByName(@PathVariable String medicineName){
+		return new ResponseEntity<List<Medicine>>(medicineInterface.findByName(medicineName), HttpStatus.ACCEPTED);
 	}
 	
 	

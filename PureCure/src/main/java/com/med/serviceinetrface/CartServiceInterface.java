@@ -10,14 +10,14 @@ public interface CartServiceInterface {
 
 	public Cart createCart( Cart cart,Integer customerId);
 
-	public List<Medicine> getMedicine(Integer cartId);
-
-	public void removeFromCart(int cartId, int medicineId);
-	
-	public void addMedicineToCart(Integer cartId, Integer medicineId);
-
-	public String removeCartById(Integer cartId);
-	
+//	public List<Medicine> getMedicine(Integer cartId);
+//
+//	public void removeFromCart();
+//	
+//	public void addMedicineToCart();
+//
+//	public String removeCartById();
+//	
 	public Integer findCartIdByCustomerId(Integer customerId);
 	
 	
