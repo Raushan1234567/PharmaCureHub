@@ -113,7 +113,7 @@ async function showMedicineContainer(element) {
     increment_button.innerText = "+";
 
     decrement_button.addEventListener('click', () =>{
-        // console.log("Hello India");
+       
         decrementQuantity(element.medicineId);
     })
 
@@ -121,11 +121,12 @@ async function showMedicineContainer(element) {
         incrementQuantity(element.medicineId);
     })
    forthDiv.append(decrement_button,quantity,increment_button);
+   
     let fifthDiv = document.createElement("div");
     fifthDiv.setAttribute("id", "fifthDiv");
     fifthDiv.setAttribute("class", "remove-container");
     let removebutton = document.createElement("button");
-    removebutton.setAttribute("class", "remove-button");
+    removebutton.setAttribute("id", "remove_button");
     removebutton.innerText = "Remove";
 
     removebutton.addEventListener('click', () => {
@@ -190,141 +191,6 @@ function getCartItemId(cart_id, medicineId) {
     });
 }
 
-// function decrementQuantity(medicineId) {
-//     fetchCartId()
-//         .then(data => {
-//             let cart_id = data;
-//             console.log("cart_id: " + cart_id);
-//             return getCartItemId(cart_id, medicineId);
-//         })
-//         .then(cartItemId => {
-//             console.log("cartItemId: " + cartItemId);
-//             return fetch(`http://localhost:9090/cartItem/decrement/${cartItemId}`, {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type': 'application/json',
-//                     'Accept': 'application/json',
-//                 },
-//             })
-//         })
-//         .then(response => {
-//             console.log("Response is: " + response);
-//             if (response.ok) {
-//                 alert("successfull");
-//             } else {
-//                 throw new Error("Error fetching decrement");
-//             }
-//         })
-//         .catch(error => {
-//             console.error("Error:", error);
-//         });
-// }
-
-// async function decrementQuantity(itemId) {
-//     try {
-//         const cartId = await fetchCartId();
-//         const cartItemId = await getCartItemId(cartId, itemId);
-//         const response = await fetch(`http://localhost:9090/cartItem/decrement/${cartItemId}`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application/json',
-//             },
-//         });
-
-//         if (response.ok) {
-//             await updateQuantity(itemId);
-//             alert("Successfully decremented");
-            
-//         } else {
-//             throw new Error("Error fetching decrement");
-//         }
-//     } catch (error) {
-//         console.error("Error:", error);
-//     }
-// }
-
-
-
-// function incrementQuantity(medicineId) {
-//     fetchCartId()
-//         .then(data => {
-//             let cart_id = data;
-//             console.log("cart_id: " + cart_id);
-//             return getCartItemId(cart_id, medicineId);
-//         })
-//         .then(cartItemId => {
-//             console.log("cartItemId: " + cartItemId);
-//             return fetch(`http://localhost:9090/cartItem/increment/${cartItemId}`, {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type': 'application/json',
-//                     'Accept': 'application/json',
-//                 },
-//             })
-//         })
-//         .then(response => {
-//             console.log("Response is: " + response);
-//             if (response.ok) {
-//                 alert("successfull");
-//             } else {
-//                 throw new Error("Error fetching decrement");
-//             }
-//         })
-//         .catch(error => {
-//             console.error("Error:", error);
-//         });
-// }
-
-// async function incrementQuantity(itemId) {
-//     try {
-//         const cartId = await fetchCartId();
-//         const cartItemId = await getCartItemId(cartId, itemId);
-//         const response = await fetch(`http://localhost:9090/cartItem/increment/${cartItemId}`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application/json',
-//             },
-//         });
-
-//         if (response.ok) {
-//             await updateQuantity(itemId);
-//             alert("Successfully incremented");
-            
-//         } else {
-//             throw new Error("Error fetching increment");
-//         }
-//     } catch (error) {
-//         console.error("Error:", error);
-//     }
-// }
-
-// function getQuantity(medicineId){
-//     fetchCartId()
-//         .then(data => {
-//             let cart_id = data;
-//             console.log("cart_id: " + cart_id);
-//             return getCartItemId(cart_id, medicineId);
-//         })
-//         .then(cartItemId => {
-//             console.log("cartItemId: " + cartItemId);
-//             return fetch(`http://localhost:9090/cartItem/getQuantity/${cartItemId}`, {
-//                 method: 'GET',
-//                 headers: {
-//                     'Content-Type': 'application/json',
-//                     'Accept': 'application/json',
-//                 },
-//             }).then(response =>{
-//                 // console.log("response: " + response);
-//                 return response.json();
-//             })
-//         })
-// }
-
-// ... (existing code)
-
-// ... (existing code)
 
 async function updateQuantity(itemId) {
     const quantityElement = document.querySelector(`[data-item-id="${itemId}"] .quantity`);
@@ -351,10 +217,6 @@ async function updateQuantity(itemId) {
         }
     }
 }
-
-// ... (existing code)
-
-// ... (existing code)
 
 async function decrementQuantity(itemId) {
     try {
