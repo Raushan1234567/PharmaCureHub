@@ -35,15 +35,9 @@ public class Cart {
     private Customer customer;
 
 
-
     @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-            name = "cart_medicine",
-            joinColumns = @JoinColumn(name = "cart_id"),
-            inverseJoinColumns = @JoinColumn(name = "medicine_id")
-    )
-    private List<Medicine> medicines = new ArrayList<>();
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItem> cartItems = new ArrayList<>();
 
   
 }

@@ -10,38 +10,9 @@ function closeModelPop(){
 }
 
 
-let quantities = {};
+
+
 let customerId;
-
-function increment(itemId) {
-    if (!quantities[itemId]) {
-        quantities[itemId] = 1;
-    } else {
-        quantities[itemId]++;
-    }
-    updateQuantity(itemId);
-}
-
-function decrement(itemId) {
-    if (quantities[itemId] && quantities[itemId] > 1) {
-        quantities[itemId]--;
-    }
-    updateQuantity(itemId);
-}
-
-function updateQuantity(itemId) {
-    const quantityElement = document.querySelector(`[data-item-id="${itemId}"] .quantity`);
-    if (quantityElement) {
-        quantityElement.innerText = quantities[itemId];
-    }
-}
-
-// let cartIcon = document.getElementById("cartIcon");
-// cartIcon.addEventListener('click',()=>{
-//     window.location.reload();
-// })
-
-
 function fetchCartId() {
     const userString = localStorage.getItem('user');
     if (userString) {
@@ -65,7 +36,7 @@ function fetchCartId() {
 }
 
 function fetchCartItems(cartId) {
-    return fetch(`http://localhost:9090/cart/getcartItems/${cartId}`, {
+    return fetch(`http://localhost:9090/cartItem/getMedicinesByCartId/${cartId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -81,7 +52,7 @@ function fetchCartItems(cartId) {
 }
 
 function removeCartItem(cartId, medicineId) {
-    return fetch(`http://localhost:9090/cart/removeCartItems/${cartId}/${medicineId}`, {
+    return fetch(`http://localhost:9090/cartItem/deleteCartItem/${cartId}/${medicineId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -90,9 +61,11 @@ function removeCartItem(cartId, medicineId) {
     });
 }
 
+
+
 var container = document.getElementById("container");
 
-function showMedicineContainer(element) {
+async function showMedicineContainer(element) {
 
     let itemContainer = document.createElement("div");
     itemContainer.setAttribute("id", "itemContainer");
@@ -120,17 +93,40 @@ function showMedicineContainer(element) {
     let forthDiv = document.createElement("div");
     forthDiv.setAttribute("id", "forthDiv");
     forthDiv.setAttribute("class", "quantity-container");
-    forthDiv.innerHTML = `
-        <button class="quantity-button" onclick="decrement(${element.medicineId})">-</button>
-        <span class="quantity">${quantities[element.medicineId] || 1}</span>
-        <button class="quantity-button" onclick="increment(${element.medicineId})">+</button>
-    `;
 
+    let decrement_button = document.createElement("button")
+    decrement_button.setAttribute("id","decrement_button");
+    decrement_button.innerText = "-";
+
+    let quantity = document.createElement("span");
+    quantity.setAttribute("id","quantity");
+    try {
+        const quantityValue = await getQuantity(element.medicineId);
+        quantity.innerText = quantityValue;
+    } catch (error) {
+        console.error("Error fetching quantity:", error);
+    }
+    
+    
+    let increment_button = document.createElement("button")
+    increment_button.setAttribute("id","increment_button");
+    increment_button.innerText = "+";
+
+    decrement_button.addEventListener('click', () =>{
+       
+        decrementQuantity(element.medicineId);
+    })
+
+    increment_button.addEventListener('click', () =>{
+        incrementQuantity(element.medicineId);
+    })
+   forthDiv.append(decrement_button,quantity,increment_button);
+   
     let fifthDiv = document.createElement("div");
     fifthDiv.setAttribute("id", "fifthDiv");
     fifthDiv.setAttribute("class", "remove-container");
     let removebutton = document.createElement("button");
-    removebutton.setAttribute("class", "remove-button");
+    removebutton.setAttribute("id", "remove_button");
     removebutton.innerText = "Remove";
 
     removebutton.addEventListener('click', () => {
@@ -177,6 +173,124 @@ function removeItemFromCart(medicineId) {
         .catch(error => {
             console.error("Error:", error);
         });
+}
+
+function getCartItemId(cart_id, medicineId) {
+    return fetch(`http://localhost:9090/cartItem/getCartItemId/${cart_id}/${medicineId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Error fetching Medicine");
+        }
+        return response.json();
+    });
+}
+
+
+async function updateQuantity(itemId) {
+    const quantityElement = document.querySelector(`[data-item-id="${itemId}"] .quantity`);
+    if (quantityElement) {
+        try {
+            const cartId = await fetchCartId();
+            const cartItemId = await getCartItemId(cartId, itemId);
+            const response = await fetch(`http://localhost:9090/cartItem/getQuantity/${cartItemId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error("Error fetching quantity");
+            }
+
+            const quantityData = await response.json();
+            quantityElement.innerText = quantityData.quantity; // Update the quantity directly
+        } catch (error) {
+            console.error("Error updating quantity:", error);
+        }
+    }
+}
+
+async function decrementQuantity(itemId) {
+    try {
+        const cartId = await fetchCartId();
+        const cartItemId = await getCartItemId(cartId, itemId);
+        const response = await fetch(`http://localhost:9090/cartItem/decrement/${cartItemId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            // alert("Successfully decremented");
+            // Fetch and display updated cart items
+            fetchCartId()
+                .then(cartId => fetchCartItems(cartId))
+                .then(data => showMedicine(data));
+        } else {
+            throw new Error("Error fetching decrement");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+async function incrementQuantity(itemId) {
+    try {
+        const cartId = await fetchCartId();
+        const cartItemId = await getCartItemId(cartId, itemId);
+        const response = await fetch(`http://localhost:9090/cartItem/increment/${cartItemId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            // alert("Successfully incremented");
+            // Fetch and display updated cart items
+            fetchCartId()
+                .then(cartId => fetchCartItems(cartId))
+                .then(data => showMedicine(data));
+        } else {
+            throw new Error("Error fetching increment");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+
+async function getQuantity(medicineId) {
+    try {
+        let cart_id = await fetchCartId();
+        let cartItemId = await getCartItemId(cart_id, medicineId);
+        let response = await fetch(`http://localhost:9090/cartItem/getQuantity/${cartItemId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+        });
+        if (!response.ok) {
+            throw new Error("Error fetching quantity");
+        }
+        let quantityData = await response.json();
+        return quantityData;
+    } catch (error) {
+        console.error("Error fetching quantity:", error);
+        throw error;
+    }
 }
 
 // Fetch and show medicine initially
