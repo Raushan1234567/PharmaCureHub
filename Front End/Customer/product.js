@@ -102,12 +102,9 @@ function displayProducts(products) {
                     
                 }) 
                 .then(response =>{
-<<<<<<< HEAD
                     if(!response.ok){
                         console.log("Response: "+response);
-=======
-                    if(!response.ok){   
->>>>>>> ba9cdaa89ca7548add922ab54b58f06b7322c89e
+
                         alert("Medicine already exist");
                     }else {
                         alert("item added successfully");
