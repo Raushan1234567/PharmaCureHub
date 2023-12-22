@@ -59,19 +59,27 @@
 
 #firstDiv{
     width: 16%;
-    /* background-color: red; */
+    /* background-color: black; */
     /* margin-left: 1rem; */
     border-radius: 5%;
 }
 #secondDiv{
-    width: 27%;
+    width: 25%;
     /* background-color: pink; */
-    margin-left: 1.2rem;
+    margin-left: 1.5rem;
 }
 #thirdDiv{
-    width: 25%;
+    width: 17%;
     /* background-color: yellow; */
     margin-left: 1rem;
+}
+#forthDiv{
+    /* background-color: red; */
+    margin-left: 0.6rem;
+}
+#fifthDiv{
+    margin-left: 5.2rem;
+    /* background-color: green; */
 }
 #medicineImage{
     width: 75%;
@@ -149,23 +157,19 @@
     align-items: center;
 }
   
-.quantity-button {
-    width: 3.5rem;
-    height: 2rem;
-    font-size: 16px;
-    background-color: #11314f;
-    /* /* background-color: teal; */
-    color: white; 
-    border: none;
+
     cursor: pointer;
-    border: 0px;
+    padding: 3% 50% 3% 50%;
+    margin-right: 0.3rem;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+
 }
-.incdescont{
-    /* background-color: red; */
-    /* width: 50%; */
-    /* font-size: 50px;
-    margin-bottom: 2rem; */
+#quantity{
+    font-size: 1.3rem;
+    color: white;
 }
+
 .quantity {
     padding: 0 10px;
     font-size: 18px;
@@ -174,12 +178,27 @@
 .remove-button{
     cursor: pointer;
     background-color: #11314f;
-    margin-top: 1rem;
-    padding: 0.5rem;
-    color: white;
-    border: 0px;
-    padding: 0.5rem;
+
+#increment_button{
+    cursor: pointer;
+    /* background-color: yellow; */
+    padding: 3% 50% 3% 50%;
+    margin-left: 0.3rem;
+    font-size: 1rem;
     border-radius: 0.3rem;
-    margin: 2.7rem 0rem 0rem 1rem;
+}
+
+#remove_button{
+    cursor: pointer;
+    /* background-color: #11314f; */
+
+    margin-top: 1rem;
+    padding: 5% 15% 5% 15%;
+    color: white;
+    /* border: 0px; */
+   
+    border-radius: 0.3rem;
+    margin: 3.1rem 0rem 0rem 1rem;
+    color: red;
 }
   

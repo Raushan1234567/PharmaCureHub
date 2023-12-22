@@ -3,6 +3,7 @@ package com.med.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.med.model.Cart;
 import com.med.model.Medicine;
 import com.med.serviceinetrface.CartServiceInterface;
+import com.razorpay.Order;
+import com.razorpay.RazorpayClient;
+import com.razorpay.RazorpayException;
 @CrossOrigin(origins = "*")
 @RequestMapping("/cart")
 @RestController
@@ -40,6 +44,30 @@ public class CartController {
         // Check if a cart id with the given customerId exists
         return new ResponseEntity<>(cartId, HttpStatus.OK);
     }
+
+
+	@PostMapping("/payment/{amount}")
+	public ResponseEntity<String> payment(@PathVariable String amount){
+		int am=Integer.parseInt(amount);
+		System.out.println("done ="+amount);
+		Order o=null;
+		try {
+			
+		var clint=new RazorpayClient("rzp_test_QHOBobX1qODW9l", "xROii3krqQkKRr4DwO8Ee8sB");
+			JSONObject ob=new JSONObject();
+			ob.put("amount", am*100);
+			ob.put("currency", "INR");
+			ob.put("receipt", "txn_123456");
+			
+			o=clint.orders.create(ob);
+			
+			System.out.println(o);
+		} catch (RazorpayException e) {	
+		System.out.println(e);
+		}
+		
+		return new ResponseEntity<String>(o.toString(),HttpStatus.OK) ;
+	}
 
 	
 //	@PostMapping("/addMedicine/{cartId}/{medicineId}")
