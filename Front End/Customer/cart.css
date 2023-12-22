@@ -147,21 +147,17 @@
     margin-top: 0.5rem;
     /* background-color: gray; */
 }
-#numberOfPills{
-    /* background-color: green; */
-    /* margin-top: 0px; */
-}
 
 .quantity-container {
     display: flex;
     align-items: center;
 }
-  
-
+#remove_button{ 
     cursor: pointer;
-    padding: 3% 50% 3% 50%;
-    margin-right: 0.3rem;
+    padding: 3% 20% 3% 20%;
+    margin: 3.2rem 0rem 0rem 0.3rem;
     font-size: 1rem;
+    border: 0px;
     border-radius: 0.3rem;
 
 }
@@ -170,14 +166,7 @@
     color: white;
 }
 
-.quantity {
-    padding: 0 10px;
-    font-size: 18px;
-    color: white;
-}
-.remove-button{
-    cursor: pointer;
-    background-color: #11314f;
+
 
 #increment_button{
     cursor: pointer;
@@ -185,20 +174,20 @@
     padding: 3% 50% 3% 50%;
     margin-left: 0.3rem;
     font-size: 1rem;
+    border: 0px;
     border-radius: 0.3rem;
 }
-
-#remove_button{
+#decrement_button{
     cursor: pointer;
-    /* background-color: #11314f; */
-
-    margin-top: 1rem;
-    padding: 5% 15% 5% 15%;
-    color: white;
-    /* border: 0px; */
-   
+    /* background-color: yellow; */
+    padding: 3% 50% 3% 50%;
+    margin-right: 0.3rem;
+    font-size: 1rem;
+    border: 0px;
     border-radius: 0.3rem;
-    margin: 3.1rem 0rem 0rem 1rem;
-    color: red;
 }
+
+
+
+
   
