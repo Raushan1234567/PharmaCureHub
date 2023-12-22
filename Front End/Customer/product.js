@@ -54,8 +54,8 @@ function displayProducts(products) {
         productCombine.innerHTML = `
         
             <h3 id="productName" class = "productCombineDivClass">${item.medicineName}</h3>
-            <p id="productDescription" class = "productCombineDivClass"><span class="productComibineParameter"> Desc:</span> ${item.medicineDescription}</p>
-            <p id="productCompanyName" class = "productCombineDivClass"><span class="productComibineParameter"> Company:</span>Company: ${item.companyName}</p>
+            <p id="productDescription" class = "productCombineDivClass"><span class="productComibineParameter"> Desc: </span> ${item.medicineDescription}</p>
+            <p id="productCompanyName" class = "productCombineDivClass"><span class="productComibineParameter"> Company: </span>${item.companyName}</p>
         `;
         const addToCart = document.createElement("button");
         addToCart.setAttribute("id","addToCart");
@@ -102,12 +102,10 @@ function displayProducts(products) {
                     
                 }) 
                 .then(response =>{
-<<<<<<< HEAD
+
                     if(!response.ok){
                         console.log("Response: "+response);
-=======
-                    if(!response.ok){   
->>>>>>> ba9cdaa89ca7548add922ab54b58f06b7322c89e
+
                         alert("Medicine already exist");
                     }else {
                         alert("item added successfully");
