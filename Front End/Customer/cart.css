@@ -158,9 +158,6 @@
 }
   
 
-
-#decrement_button{
-    /* background-color: red; */
     cursor: pointer;
     padding: 3% 50% 3% 50%;
     margin-right: 0.3rem;
@@ -172,6 +169,16 @@
     font-size: 1.3rem;
     color: white;
 }
+
+.quantity {
+    padding: 0 10px;
+    font-size: 18px;
+    color: white;
+}
+.remove-button{
+    cursor: pointer;
+    background-color: #11314f;
+
 #increment_button{
     cursor: pointer;
     /* background-color: yellow; */
@@ -184,6 +191,7 @@
 #remove_button{
     cursor: pointer;
     /* background-color: #11314f; */
+
     margin-top: 1rem;
     padding: 5% 15% 5% 15%;
     color: white;

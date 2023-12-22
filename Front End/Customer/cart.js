@@ -113,7 +113,7 @@ async function showMedicineContainer(element) {
     increment_button.innerText = "+";
 
     decrement_button.addEventListener('click', () =>{
-       
+
         decrementQuantity(element.medicineId);
     })
 
@@ -121,7 +121,7 @@ async function showMedicineContainer(element) {
         incrementQuantity(element.medicineId);
     })
    forthDiv.append(decrement_button,quantity,increment_button);
-   
+
     let fifthDiv = document.createElement("div");
     fifthDiv.setAttribute("id", "fifthDiv");
     fifthDiv.setAttribute("class", "remove-container");
@@ -217,6 +217,7 @@ async function updateQuantity(itemId) {
         }
     }
 }
+
 
 async function decrementQuantity(itemId) {
     try {

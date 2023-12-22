@@ -45,6 +45,7 @@ public class CartController {
         return new ResponseEntity<>(cartId, HttpStatus.OK);
     }
 
+
 	@PostMapping("/payment/{amount}")
 	public ResponseEntity<String> payment(@PathVariable String amount){
 		int am=Integer.parseInt(amount);
@@ -67,6 +68,7 @@ public class CartController {
 		
 		return new ResponseEntity<String>(o.toString(),HttpStatus.OK) ;
 	}
+
 	
 //	@PostMapping("/addMedicine/{cartId}/{medicineId}")
 //    public ResponseEntity<String> addMedicineToCart(@PathVariable Integer cartId, @PathVariable Integer medicineId) {

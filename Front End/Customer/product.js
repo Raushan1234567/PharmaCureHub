@@ -103,6 +103,9 @@ function displayProducts(products) {
                 }) 
                 .then(response =>{
 
+                    if(!response.ok){   
+
+
                     if(!response.ok){
                         console.log("Response: "+response);
 
