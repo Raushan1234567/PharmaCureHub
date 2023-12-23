@@ -6,7 +6,11 @@
     <title>Pharma Cure Hub</title>
     <link rel="stylesheet" href="product.css">
     <link rel="stylesheet" href="cart.css">
-    
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
     <div id="navbar">
@@ -53,7 +57,12 @@
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
-            <img id="payImage" src="Image/bannerImage0.png" alt="">  
+            <!--  payment  start -->
+            <div id="payment">
+                <p>Total Price : <span id="totalAmount">0</span></p>
+                <button onclick="payment()">Pay</button>
+            </div>
+            <!--  payment  -->
         </div>
         
     </div>

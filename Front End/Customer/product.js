@@ -114,7 +114,8 @@ function displayProducts(products) {
                         alert("item added successfully");
                         
                     }                                          
-                }) 
+                  }
+                  }) 
                 
             })
                             
