@@ -60,11 +60,68 @@ function removeCartItem(cartId, medicineId) {
         },
     });
 }
-
-
-
+ let totalSum=0;
+// payment start
+function payment() {
+    let amount=totalSum;
+    $.ajax(
+    {
+    url:`http://localhost:9090/cart/payment/${amount}`,
+    data:JSON.stringify({amount:amount,info:"information"}),
+    contentType:'appliation/json',
+    type:'Post',
+    dataType:'json',
+    success:function(response) {
+    
+    if(response.status == "created") {
+        let options = {
+            key: 'rzp_test_QHOBobX1qODW9l',
+            amount: response.amount,
+            currency: 'INR',
+            name: "Demo",
+            description: "Test Transaction",
+            image: "",
+            order_id: response.id,
+            handler:function(response){
+    console.log(response.razorpay_payement_id);
+    console.log(response.razorpay_order_id);
+    console.log(response.razorpay_signature);
+    console.log("payment done");
+    
+            },
+            prefill:{
+                name:'',
+                email:'',
+                contact:''
+            },
+            notes: {
+                address: "Razorpay Corporate Office Test"
+            },
+            
+        theme: {
+            color: "#3399cc"
+        }
+         }
+         var rzp1 = new Razorpay(options);
+         rzp1.on("payment.failed",function(response){
+            console.log(response);
+            alert("failed");
+         });
+    
+    let s=rzp1.open();
+        console.log(s);
+    }
+    
+    },
+    error:function(error){
+        console.log(error); 
+    }
+    
+    })
+    }
+// payment end
 var container = document.getElementById("container");
-
+ 
 async function showMedicineContainer(element) {
 
     let itemContainer = document.createElement("div");
@@ -81,7 +138,7 @@ async function showMedicineContainer(element) {
         <p id="medicinePrice" class="cartCombineDivClass"><span class="combinedDivParameter">Price: $</span>${element.price}</p>
         <p id="numberOfPills" class="cartCombineDivClass"><span class="combinedDivParameter">Pills:</span> ${element.numberOfTablets}</p>
     `;
-
+let id=document.getElementById("totalAmount") ;
     let thirdDiv = document.createElement("div");
     thirdDiv.setAttribute("id", "thirdDiv");
     thirdDiv.innerHTML = `
@@ -103,6 +160,10 @@ async function showMedicineContainer(element) {
     try {
         const quantityValue = await getQuantity(element.medicineId);
         quantity.innerText = quantityValue;
+        totalSum+= (element.price * quantityValue);
+        
+        id.innerHTML=totalSum;
+        console.log(totalSum);
     } catch (error) {
         console.error("Error fetching quantity:", error);
     }
@@ -144,6 +205,7 @@ function showMedicine(items) {
     if (items == null) {
         data = [];
     } else {
+        totalSum=0;
         items.forEach(element => {
             showMedicineContainer(element);
         });

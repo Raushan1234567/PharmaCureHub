@@ -109,10 +109,13 @@ function displayProducts(products) {
                     }else {
                         alert("item added successfully");
                         
+
+                    }                                          
+                  }
+                  }) 
+
                     }  
                 })
-
- 
                 
             })
                             
