@@ -83,10 +83,10 @@ function payment() {
             image: "",
             order_id: response.id,
             handler:function(response){
-    console.log(response.razorpay_payement_id);
-    console.log(response.razorpay_order_id);
-    console.log(response.razorpay_signature);
-    console.log("payment done");
+    // console.log(response.razorpay_payement_id);
+    // console.log(response.razorpay_order_id);
+    // console.log(response.razorpay_signature);
+    // console.log("payment done");
     
             },
             prefill:{

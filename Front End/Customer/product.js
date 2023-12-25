@@ -87,7 +87,7 @@ function displayProducts(products) {
                         alert("login first!");
                         throw new Error("Network response was not ok");
                     }
-                    return response.json();
+                      return response.json();
                 })
                 .then(data =>{                    
                     let cart_id = data;
@@ -106,16 +106,14 @@ function displayProducts(products) {
                         console.log("Response: "+response);
 
                         alert("Medicine already exist");
-                    }else {
+                    }
+                    else {
+                        // location.reload();
                         alert("item added successfully");
-                        
-
+                      
                     }                                          
-                  }
-                  }) 
-
-                    }  
-                })
+                  })
+             
                 
             })
                             
