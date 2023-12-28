@@ -135,6 +135,16 @@ body{
 }
 /* footer.css */
 
+#home__logoutBtn{
+    cursor: pointer;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    border: 0px;
+    background-color: #136cbe;
+    /* margin-top: 0.3rem; */
+}
+
 #footer {
     position: absolute;
     background-color: #136cbe;
