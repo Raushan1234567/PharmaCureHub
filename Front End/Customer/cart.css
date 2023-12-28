@@ -88,13 +88,7 @@
     margin: 2.1rem 0rem 0rem 1rem;
 }
 
-#paymentDiv{
-    width: 35%;
-    /* background-color: black; */
-    margin-left: 63%;
-    margin-top: 1%;
-    opacity: 120%;
-}
+
 
 .cross-container {
     cursor: pointer;
@@ -125,12 +119,10 @@
   }
   
 
-#payImage{
+/* #payImage{
     width: 100%;
     height: 90%;
-    
-    /* margin-top: 100px; */
-}
+} */
 .cartCombineDivClass{
     color: white;
 }

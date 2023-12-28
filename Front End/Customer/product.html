@@ -58,9 +58,12 @@
                 <div class="line"></div>
             </div>
             <!--  payment  start -->
-            <div id="payment">
-                <p>Total Price : <span id="totalAmount">0</span></p>
-                <button onclick="payment()">Pay</button>
+            <div id="paymentSection">
+                <p id="totalItem">Total Items : <span id="totalitemvalue" class="paymentValClass">0</span></p>
+                <p id="totalPrice">Total Price : <span id="totalAmount" class="paymentValClass">0</span></p>
+                <p id="discount">Discount : <span id="discountValue" class="paymentValClass">0 <span id="discountPer">%</span></span></p>
+                <p id="coupon">Apply_Coupon :</p>
+                <button id="payment" onclick="payment()">Make Payment</button>
             </div>
             <!--  payment  -->
         </div>
