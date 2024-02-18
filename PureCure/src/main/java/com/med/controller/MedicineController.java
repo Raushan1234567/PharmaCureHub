@@ -63,5 +63,11 @@ public class MedicineController {
 	public ResponseEntity<String> deleteMedicine(@PathVariable Integer medicineId) {
 		return new ResponseEntity<String>(medicineInterface.deleteMedicine(medicineId),HttpStatus.OK);
 	}
+	
+	
+	@GetMapping("/pagination/{pageno1}/{pageno2}")
+	public ResponseEntity<List<Medicine>> getMedicine(@PathVariable Integer pageno1,@PathVariable Integer pageno2) {
+		return new ResponseEntity<List<Medicine>>(medicineInterface.gateMedicine(pageno1,pageno2),HttpStatus.OK);
+	}
 
 }

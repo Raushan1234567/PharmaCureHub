@@ -51,7 +51,7 @@ public class Medicine {
 //    private List<Cart> carts = new ArrayList<>();
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "medicine", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "medicine", cascade = CascadeType.ALL)
     private List<CartItem> cartItems = new ArrayList<>();
 
 	

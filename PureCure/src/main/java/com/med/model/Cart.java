@@ -35,9 +35,24 @@ public class Cart {
     private Customer customer;
 
 
+  
+    
     @JsonIgnore
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
     private List<CartItem> cartItems = new ArrayList<>();
+
+
+
+
+    public void clearCartItems() {
+        // Disassociate cart items from the cart
+        for (CartItem cartItem : cartItems) {
+            cartItem.setCart(null);
+        }
+
+        // Clear the cart items
+        cartItems.clear();
+    }
 
   
 }

@@ -21,5 +21,7 @@ public interface MedicineInterface {
 	
 
 	public String deleteMedicine(Integer medicineId);
+
+	public List<Medicine> gateMedicine(Integer pageno1, Integer pageno2);
 	
 }
