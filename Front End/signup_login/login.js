@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function createCart(customerId) {
-    const cartData = {}; // No need to include cartId in the request body
+    const cartData = {}; 
 
     fetch(`http://localhost:9090/cart/createCart/${customerId}`, {
         method: 'POST',
@@ -79,10 +79,10 @@ function createCart(customerId) {
     })
     .then(data => {
         console.log('Cart created successfully:', data);
-        // Perform any additional actions after cart creation if needed
+      
     })
     .catch(error => {
-        // Handle errors during cart creation
+       
         console.error('Error creating cart:', error);
     });
 }

@@ -35,8 +35,8 @@
 
 
 
-    setInterval(nextSlide,2000); // Change the duration (in milliseconds) as needed
-  });
+//     setInterval(nextSlide,2000); 
+//   });
 
   document.addEventListener('DOMContentLoaded', () => {
     const user = JSON.parse(localStorage.getItem('user'));
