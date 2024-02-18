@@ -246,7 +246,35 @@ body{
 }
 
 /* djhhhhhhhjhjhj */
-
-#payment{
+#paymentDiv{
+    width: 35%;
+    /* background-image: url('Image/bannerImage0.png'); */
+    background-size: cover;
+    margin-left: 63%;
+    margin-top: 1%;
+    opacity: 120%;
+    /* background-color: gray; */
+    /* border: 2px solid red; */
+   
+}
+#paymentSection{
+    /* background-color: red; */
+    width: 60%;
+    margin: auto;
+    text-align: center;
     color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+}
+#payment{
+    cursor: pointer;
+    color: white;
+    padding: 3% 33.6% 3% 33.6%;
+    border-radius: 2%;
+    border: 0px;
+    background-color: #136cbe;
+    font-weight: bolder;
+}
+.paymentValClass{
+   
 }
