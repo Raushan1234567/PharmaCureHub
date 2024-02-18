@@ -1,20 +1,39 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
+// document.addEventListener('DOMContentLoaded', function () {
+//   const slides = document.querySelectorAll('.slide');
+//   const totalSlides = slides.length;
+//   let currentSlide = 0;
+//   let animationFrameId;
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.style.opacity = i === index ? 1 : 0;
-      });
-    }
+//   function showSlide(index) {
+//     slides.forEach((slide, i) => {
+//       slide.style.opacity = i === index ? 1 : 0;
+//     });
+//   }
 
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
+//   function nextSlide() {
+//     currentSlide = (currentSlide + 1) % totalSlides;
+//     showSlide(currentSlide);
+//     // Change the duration to 1000 milliseconds (1 second)
+//     setTimeout(() => {
+//       animationFrameId = requestAnimationFrame(nextSlide);
+//     }, 1000);
+//   }
 
-    setInterval(nextSlide,500); // Change the duration (in milliseconds) as needed
-  });
+//   // Use requestAnimationFrame for smoother animations
+//   animationFrameId = requestAnimationFrame(nextSlide);
+
+//   // Stop the animation when the page is hidden or inactive
+//   document.addEventListener('visibilitychange', function () {
+//     if (document.hidden) {
+//       cancelAnimationFrame(animationFrameId);
+//     } else {
+//       // Resume animation when the page becomes visible
+//       animationFrameId = requestAnimationFrame(nextSlide);
+//     }
+//   });
+// });
+
+
   document.addEventListener('DOMContentLoaded', () => {
     const user = JSON.parse(localStorage.getItem('user'));
 

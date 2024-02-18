@@ -1,8 +1,15 @@
 
-function showModelPop(){
-    document.querySelector('.cartMainDiv').classList.add('showPopform')
-    // document.querySelector('.cartPopShow').classList.add('')
-    console.log("Hello")
+function showModelPop() {
+  document.querySelector(".cartMainDiv").classList.add("showPopform");
+  // document.querySelector('.cartPopShow').classList.add('')
+  // Fetch and show medicine initially
+  fetchCartId()
+    .then((cartId) => fetchCartItems(cartId))
+    .then((data) => showMedicine(data))
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  console.log("FETCHING DATA");
 }
 
 function closeModelPop(){
@@ -47,7 +54,10 @@ function fetchCartItems(cartId) {
         if (!response.ok) {
             throw new Error("Error fetching cart items");
         }
+        console.log(response, 'CART ITEMS');
         return response.json();
+    }).catch((err) => {
+        console.log(err)
     });
 }
 
@@ -220,6 +230,7 @@ function removeItemFromCart(medicineId) {
             return removeCartItem(cart_id, medicineId);
         })
         .then(response => {
+            console.log(response)
             if (!response.ok) {
                 alert("Medicine doesn't exist");
             } else {
@@ -355,6 +366,7 @@ async function getQuantity(medicineId) {
         throw error;
     }
 }
+
 
 // Fetch and show medicine initially
 fetchCartId()

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.med.exception.MedicineException;
@@ -98,6 +100,15 @@ public class MedicineImplementation implements MedicineInterface{
 			throw new MedicineException("Medicine not present for this id");
 		}
 		
+	}
+
+	@Override
+	public List<Medicine> gateMedicine(Integer pageno1, Integer pageno2) {
+		// TODO Auto-generated method stub
+		System.out.println(pageno1+"   "+pageno2);
+		Pageable datap=PageRequest.of(pageno1, pageno2);
+		
+		return medicineRepository.findAll(datap).getContent();
 	}
 
 }
